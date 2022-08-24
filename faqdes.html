@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+.med {
+            display: none;
+        }
+        @media all and (min-width:480px) and (max-width:720px) {
+    
+            .med {
+            display: block;
+        }
+            /* Style the buttons that are used to open and close the accordion panel */
+           
+            .accordion {
+                background-color: #eee;
+                color: #444;
+                cursor: pointer;
+                padding: 2px;
+                padding-left: 10px;
+                width: 100%;
+                text-align: left;
+                border: none;
+                outline: none;
+                transition: 0.4s;
+            }
+
+            /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+            .active,
+            .accordion:hover {
+                background-color: #ccc;
+            }
+
+            /* Style the accordion panel. Note: hidden by default */
+            .panel {
+                padding: 0 18px;
+                background-color: white;
+                display: none;
+                overflow: hidden;
+            }
+
+
+            ol button {
+                background-color: transparent;
+                font-size: 20px;
+                padding: 20px 15px;
+
+
+            }
+
+            li {
+                width: 100%;
+                list-style: none;
+                margin: 25px;
+                /* border: 10px solid red; */
+            }
+
+            a {
+                text-decoration: none;
+                color: black;
+            }
+
+            a:hover {
+                color: black;
+                text-decoration: underline;
+            }
+
+            ol>div img {
+                width: 25%;
+            }
+
+
+        }
+
+        @media all and (min-width:320px) and (max-width:480px) {
+          
+            .med {
+            display: block;
+        }
+            /* Style the buttons that are used to open and close the accordion panel */
+            .accordion {
+                display: block;
+                background-color: #eee;
+                color: #444;
+                cursor: pointer;
+                padding: 2px;
+                padding-left: 10px;
+                width: 100%;
+                text-align: left;
+                border: none;
+                outline: none;
+                transition: 0.4s;
+            }
+
+            /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+            .active,
+            .accordion:hover {
+                background-color: #ccc;
+            }
+
+            /* Style the accordion panel. Note: hidden by default */
+            .panel {
+                padding: 0 18px;
+                background-color: white;
+                display: none;
+                overflow: hidden;
+            }
+
+
+            ol button {
+                background-color: transparent;
+                font-size: 20px;
+                padding: 20px 15px;
+
+
+            }
+
+            li {
+                width: 100%;
+                list-style: none;
+                margin: 25px;
+                /* border: 10px solid red; */
+            }
+
+            a {
+                text-decoration: none;
+                color: black;
+            }
+
+            a:hover {
+                color: black;
+                text-decoration: underline;
+            }
+
+            ol>div img {
+                width: 30%;
+            }
+
+
+        }
+
+   
+     
+     
+    </style>
+</head>
+
+<body>
+
+   <div class="med">
+    <button class="accordion">
+        <h4>RENTOMOJO</h4>
+    </button>
+    <div class="panel">
+        <p>
+        <ol>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Culture</a></li>
+            <li><a href="">Investors</a></li>
+            <li><a href="">Careers</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="">Our Benefits</a></li>
+            <li><a href="">Sitemap</a></li>
+        </ol>
+        </p>
+    </div>
+
+    <button class="accordion">
+        <h4>INFORMATION</h4>
+    </button>
+    <div class="panel">
+        <p>
+        <ol>
+            <li><a href="">Blog</a></li>
+            <li><a href="">FAQs</a></li>
+            <li><a href="">Document Required</a></li>
+        </ol>
+        </p>
+    </div>
+
+    <button class="accordion">
+        <h4>POLICIES</h4>
+    </button>
+    <div class="panel">
+        <p>
+        <ol>
+            <li><a href="">Shipping Policy</a></li>
+            <li><a href="">Cancellation and Return</a></li>
+            <li><a href="">Privacy Policy</a></li>
+            <li><a href="">Press</a></li>
+            <li><a href="">Rental Terms and Conditions</a></li>
+            <li><a href="">Referral Terms and Conditions</a></li>
+        </ol>
+        </p>
+    </div>
+
+    <button class="accordion">
+        <h4>NEED HELP ?</h4>
+    </button>
+    <div class="panel">
+        <p>
+        <ol>
+            <button style="margin-top: 20px;">Chat with us (9AM - 6PM</button>
+            <P style="margin-top: 20px;">jo@rentomojo.com</P>
+            <p style="margin-top: 20px;">Download App</p>
+
+            <div style="margin-top: 20px;">
+
+                <img src="https://i.ibb.co/q9vV8nb/Whats-App-Image-2022-08-23-at-11-44-54-PM.jpg" alt="">
+                <img src="https://i.ibb.co/fxYZtyr/Whats-App-Image-2022-08-23-at-11-44-54-PM-1.jpg" alt="">
+            </div>
+
+        </ol>
+
+
+        </p>
+    </div>
+
+
+    </div>
+    
+
+
+
+
+</body>
+
+</html>
+
+<script>
+    let acc = document.getElementsByClassName("accordion");
+    let i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            /* Toggle between adding and removing the "active" class,
+            to highlight the button that controls the panel */
+            this.classList.toggle("active");
+
+            /* Toggle between hiding and showing the active panel */
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
