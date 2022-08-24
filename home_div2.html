@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="./swiper-bundle.min.css">
+    <style>
+/* swiper */
+
+
+
+
+    body{
+        min-height: 100vh;
+        display:flex;
+        align-items: center;
+        justify-content:center;
+        background-color: #EFEFEF;
+    }
+
+    .slide-container{
+        max-width:1120px;
+        width:100%;
+        background-color:whitesmoke;
+        padding:40px 0;
+
+    }
+    .card{
+        width:320px;
+        border-radius: 25px;
+        background-color: #FFF;
+    }
+
+    .slide-content{
+        margin:0 40px;
+        
+    }
+
+    .image-content,.card-content{
+        display:flex;
+        flex-direction:column;
+        align-items: center;
+    padding: 10px 14px;
+    }
+
+    .image-content{
+       
+        row-gap:5px;
+    }
+
+   .card-image{
+    position:relative;
+    height:150px;
+    width:150px;
+    background-color:#FFF;
+    padding:3px;
+
+   }
+
+   .card-image .card-img{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+    border: 4px solid #4070F4;
+   }
+
+   .name{
+    font-size:18px;
+    font-weight:500;
+    color: #333;
+   }
+
+   .rent{
+    font-size:14px;
+    color:#707070;
+    text-align: center;
+   }
+   .see{
+    color:red;
+    border:1px solid red;
+    font-size:16px;
+    padding:8px 16px;
+    border-radius: 5px;
+   }
+   .see:hover{
+    background-color: red;
+    color:white;
+    cursor:pointer;
+   }
+
+   .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+
+    #un{
+            
+            margin-top: -20px;
+            text-decoration: underline;
+            text-decoration-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+                           <div>
+                            <h2>You'll love to</h2>
+                            <h2 id="un">take these home</h2>
+                        </div>
+    <!--  -->
+    <div class="slide-container swiper">
+        <div class="slide-content">
+            <div class="card-wrapper swiper-wrapper">
+                <div class="card swiper-slide">
+                <div class="image-content">
+                    
+                    <span class="overlay">
+
+                        <div class="card-image">
+                            <img src="https://p.rmjo.in/productSquare/eoynt3bs-500x500.jpg" alt="" class="card-img">
+                        </div>
+
+                        <div class="card-content">
+                            <h2 class ="name">Air Purifier</h2>
+                            <div>
+                                <p class="rent">Rent ₹469/month</p>
+                                <button class="see">See More</button>
+                            </div>
+                        </div>
+                    </span>
+                  </div>
+                </div>
+
+      <div class="card swiper-slide">
+                    <div class="image-content">
+                        
+                        <span class="overlay">
+    
+                            <div class="card-image">
+                                <img src="https://p.rmjo.in/productSquare/hc4dc706-500x500.jpg" alt="" class="card-img">
+                            </div>
+    
+                            <div class="card-content">
+                                <h2 class ="name">Atticus Wooden Single Platform Bed</h2>
+                                <div>
+                                    <p class="rent">Rent ₹339/month</p>
+                                    <button class="see">See More</button>
+                                </div>
+                            </div>
+                        </span>
+                      </div>
+                    </div>
+
+
+   <div class="card swiper-slide"> 
+                        <div class="image-content">
+                            
+                            <span class="overlay">
+        
+                                <div class="card-image">
+                                    <img src=" https://p.rmjo.in/productSquare/esf6ag3q-500x500.jpg" alt="" class="card-img">
+                                </div>
+        
+                                <div class="card-content">
+                                    <h2 class ="name">Morris Office Chair</h2>
+                                    <div>
+                                        <p class="rent">Rent ₹199/month</p>
+                                        <button class="see">See More</button>
+                                    </div>
+                                </div>
+                            </span>
+                          </div>
+                        </div>
+
+
+     <div class="card swiper-slide">
+                            <div class="image-content">
+                                
+                                <span class="overlay">
+            
+                                    <div class="card-image">
+                                        <img src="https://p.rmjo.in/productSquare/n97vj5on-500x500.jpg" alt="" class="card-img">
+                                    </div>
+            
+                                    <div class="card-content">
+                                        <h2 class ="name">Microwave Solo 20L</h2>
+                                        <div>
+                                            <p class="rent">Rent ₹299/month</p>
+                                            <button class="see">See More</button>
+                                        </div>
+                                    </div>
+                                </span>
+                              </div>
+                            </div>
+
+
+ <div class="card swiper-slide">
+                                <div class="image-content">
+                                    
+                                    <span class="overlay">
+                
+                                        <div class="card-image">
+                                            <img src="https://p.rmjo.in/productSquare/t9nfjx7q-500x500.jpg" alt="" class="card-img">
+                                        </div>
+                
+                                        <div class="card-content">
+                                            <h2 class ="name">Single Door Fridge</h2>
+                                            <div>
+                                                <p class="rent">Rent ₹809/month</p>
+                                                <button class="see">See More</button>
+                                            </div>
+                                        </div>
+                                    </span>
+                                  </div>
+                                </div>
+
+   <div class="card swiper-slide">
+                                    <div class="image-content">
+                                        
+                                        <span class="overlay">
+                    
+                                            <div class="card-image">
+                                                <img src="https://p.rmjo.in/productSquare/dwp7yb0x-500x500.jpg" alt="" class="card-img">
+                                            </div>
+                    
+                                            <div class="card-content">
+                                                <h2 class ="name">Rowling Bookshelf Medium</h2>
+                                                <div>
+                                                    <p class="rent">Rent ₹109/month</p>
+                                                    <button class="see">See More</button>
+                                                </div>
+                                            </div>
+                                        </span>
+                                      </div>
+                                    </div>
+
+
+
+  <div class="card swiper-slide">
+                                        <div class="image-content">
+                                            
+                                            <span class="overlay">
+                        
+                                                <div class="card-image">
+                                                    <img src="https://p.rmjo.in/productSquare/mnuazvk3-500x500.jpg" alt="" class="card-img">
+                                                </div>
+                        
+                                                <div class="card-content">
+                                                    <h2 class ="name">Miller Office Chair</h2>
+                                                    <div>
+                                                        <p class="rent">Rent ₹149month</p>
+                                                        <button class="see">See More</button>
+                                                    </div>
+                                                </div>
+                                            </span>
+                                          </div>
+                                        </div>
+                                        
+                                        
+        <div class="card swiper-slide">
+                                            <div class="image-content">
+                                                
+                                                <span class="overlay">
+                            
+                                                    <div class="card-image">
+                                                        <img src="https://p.rmjo.in/productSquare/em6h6xgy-500x500.jpg" alt="" class="card-img">
+                                                    </div>
+                            
+                                                    <div class="card-content">
+                                                        <h2 class ="name">Stuart Study Table</h2>
+                                                        <div>
+                                                            <p class="rent">Rent ₹149/month</p>
+                                                            <button class="see">See More</button>
+                                                        </div>
+                                                    </div>
+                                                </span>
+                                              </div>
+                                            </div>
+
+
+         <div class="card swiper-slide">
+                                                <div class="image-content">
+                                                    
+                                                    <span class="overlay">
+                                
+                                                        <div class="card-image">
+                                                            <img src="https://p.rmjo.in/productSquare/fgb0p38q-500x500.jpg" alt="" class="card-img">
+                                                        </div>
+                                
+                                                        <div class="card-content">
+                                                            <h2 class ="name">Stowy 2-Door Wardrobe</h2>
+                                                            <div>
+                                                                <p class="rent">Rent ₹409/month</p>
+                                                                <button class="see">See More</button>
+                                                            </div>
+                                                        </div>
+                                                    </span>
+                                                  </div>
+                                                </div>
+
+            <div class="card swiper-slide">
+                                                                <div class="image-content">
+                                                                    
+                                                                    <span class="overlay">
+                                                
+                                                                        <div class="card-image">
+                                                                            <img src="https://p.rmjo.in/productSquare/2yrmpjxd-500x500.jpg" alt="" class="card-img">
+                                                                        </div>
+                                                
+                                                                        <div class="card-content">
+                                                                            <h2 class ="name">Rowling Bookshelf Small</h2>
+                                                                            <div>
+                                                                                <p class="rent">Rent ₹109/month</p>
+                                                                                <button class="see">See More</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </span>
+                                                                  </div>
+                                                                </div>
+                                                      
+            </div>
+
+
+            <div class="swiper-pagination"></div>
+	        <div class="swiper-button-next"></div>
+		    <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+<script src="./swiper-bundle.min.js"></script>
+
+
+
+
+
+<script>
+var swiper = new Swiper('.slide-content', {
+      slidesPerView: 4,
+      spaceBetween: 30,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+</script>
