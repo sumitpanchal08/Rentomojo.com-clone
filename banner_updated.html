@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Image Slider (banner) Part 2 | Coding's Time</title>
+
+
+   <style>
+
+#items {
+        width:90%;
+        margin: auto;
+        display:grid;
+        grid-template-columns: repeat(6,1fr);
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        /* border: 5px solid black; */
+    
+      }
+      #items div{
+         /* width: 100%; */
+         /* margin: auto; */
+         margin-top: 20px;
+
+      }
+      #items img{
+         width: 100%;
+      }
+
+
+
+      #items div:hover{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        transform: scale(1.2);
+      }
+      #cont{
+         width: 75%;
+         height: 400px;
+         margin: auto;
+         border-radius: 30px;
+         z-index:1;
+      }
+    :root{
+   font-family: "Raleway", sans-serif;
+   font-size: 16px;
+   font-weight: 400;
+}
+
+*{
+   margin: 0;
+   box-sizing: border-box;
+}
+
+/* banner */
+.banner{
+   position: relative;
+}
+
+.banner_inner{
+   width: 100%;
+   overflow: hidden;
+}
+
+.banner_inner::after{
+   content: "";
+   display: block;
+   clear: both;
+}
+
+.banner_item{
+   position: relative;
+   float: left;
+   display: none;
+   width: 100%;
+   margin-right: -100%;
+}
+
+/* slide effect */
+.banner_item__active,
+.banner_item__pos_prev,
+.banner_item__pos_next{
+   display: block;
+}
+
+.banner_item__pos_prev{
+   left: -100%;
+}
+
+.banner_item__pos_next{
+   left: 100%;
+}
+
+.banner_item__prev{
+   transform: translateX(100%);
+   transition: transform 10s ease-in-out;
+}
+
+.banner_item__next{
+   transform: translateX(-100%);
+   transition: transform .3s ease-in-out;
+}
+
+/* fade effect */
+.banner__fade .banner_item__pos_prev,
+.banner__fade .banner_item__pos_next{
+   left: 0;
+   opacity: 0;
+}
+
+.banner__fade .banner_item__prev,
+.banner__fade .banner_item__next{
+   transform: none;
+   opacity: 1;
+   transition: opacity 0.3s ease-in-out;
+}
+
+.banner__fade .banner_item__active.banner_item__prev,
+.banner__fade .banner_item__active.banner_item__next{
+   opacity: 0;
+}
+
+/* banner */
+.banner_img{
+   display: block;
+   width: 100%;
+}
+
+.banner_caption{
+   position: absolute;
+   top: 0;
+   left: 0;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   width: 100%;
+   height: 100%;
+   padding: 3rem 4rem;
+   text-align: center;
+   color: #fff;
+   z-index: 1;
+}
+
+.banner_title{
+   font-family: "Montserrat", sans-serif;
+   font-weight: 600;
+}
+
+.banner_description{
+   margin-top: .75rem;
+   line-height: 150%;
+}
+
+.banner_indicator{
+   position: absolute;
+   bottom: 1rem;
+   left: 50%;
+   transform: translateX(-50%);
+   display: flex;
+   flex-direction: row;
+   gap: .5rem;
+   z-index: 1;
+}
+
+.banner_dot{
+   display: block;
+   padding: .25rem;
+   background-color: rgba(255, 255, 255, .25);
+   border: none;
+   border-radius: 50%;
+   cursor: pointer;
+   transition: background-color .8s ease-in-out;
+}
+
+.banner_dot__active{
+   background-color: lightskyblue;
+   cursor: default;
+   pointer-events: none;
+}
+
+.banner_control{
+   position: absolute;
+   top: 0;
+   left: 0;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   width: 100%;
+   height: 100%;
+}
+
+.banner_button{
+   display: block;
+   padding-inline: 1rem;
+   font-family: "Raleway", sans-serif;
+   font-size: 1.375rem;
+   background-color: transparent;
+   color: rgba(255, 255, 255, .25);
+   border: none;
+   cursor: pointer;
+   transition: color .25s;
+   z-index: 1;
+}
+
+.banner_button:hover{
+   color: rgba(135, 206, 250, .75);
+}
+.covid-warn{
+   padding-top:25px;
+   padding-bottom: 15px;
+
+   width: 100%;
+   border-radius: 20px;
+   /* height: 70px; */
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   /* border: 5px solid black; */
+   background-color: #D4E0E9;
+   margin-top:-15px;
+   
+
+
+}
+.covid-warn p{
+   width: 100%;
+   font-size: 14px;
+}
+
+@media all and (min-width:480px) and (max-width:720px) {
+
+   #cont{
+      /* display: none; */
+         width: 95%;
+         height: 400px;
+         margin: auto;
+         border-radius: 30px;
+         z-index:1;
+      }
+
+      .covid-warn p{
+   width: 90%;
+   margin: auto;
+   font-size:10px;
+} 
+
+
+
+   #items{
+      grid-template-columns: repeat(4,1fr);
+   }
+}
+@media all and (min-width:320px) and (max-width:480px) {
+
+   #cont{
+      /* display: none; */
+         width: 100%;
+         height: 400px;
+         margin: auto;
+         border-radius: 30px;
+         z-index:1;
+      }
+   
+    
+      .covid-warn p{
+   width: 90%;
+   margin: auto;
+   font-size:10px;
+}
+
+#items{
+   grid-template-columns: repeat(4,1fr);
+}
+}
+
+   </style>
+</head>
+
+
+<body>
+
+   <div id="cont">
+
+   <div class="banner">
+      <div class="banner_inner">
+         <div class="banner_item banner_item__active">
+            <img src="https://s.rmjo.in/WP-Web.png" alt="" class="banner_img">
+            <!-- <div class="banner_caption">
+               <h1 class="banner_title">Change It As You See Fit</h1>
+               <p class="banner_description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id cupiditate
+                  corporis laudantium quae velit quam.</p>
+            </div> -->
+         </div>
+         <div class="banner_item">
+            <img src="https://s.rmjo.in/AirOKWeb%20(1).png" alt="" class="banner_img">
+         <!-- </div>
+          <div class="banner_item">
+            <img src="https://s.rmjo.in/WP-Web.png" alt="" class="banner_img">
+         </div> -->
+      </div> 
+
+
+      <div class="banner_indicator">
+         <button class="banner_dot banner_dot__active"></button>
+         <button class="banner_dot"></button>
+         <button class="banner_dot"></button>
+      </div>
+
+      <div class="banner_control">
+         <button class="banner_button banner_button__prev">
+            <i class="fas fa-chevron-left"></i>
+         </button>
+         <button class="banner_button banner_button__next">
+            <i class="fas fa-chevron-right"></i>
+         </button>
+      </div>
+   </div>
+   <div class="covid-warn">
+      <p>
+         Safety precautions during COVID-19. We’re taking additional steps and precautionary measures to protect our community from COVID-19.   <span><a href="">&nbsp&nbsp Know more ></a></span></p>
+   </div>
+   </div>
+
+
+
+   <div id="items">
+      <div><img src="https://i.ibb.co/HhXHCsB/Screenshot-4335.png" alt=""/></div>
+         <div> <img src="https://i.ibb.co/m0YCPLm/fur.png" alt="" /></div>
+            <div> <img src="https://i.ibb.co/xswBYxk/app.png" alt="" /></div>
+               <div> <img src="https://i.ibb.co/zNdbgpw/ele.png" alt="" /></div>
+                  <div><img src="https://i.ibb.co/1zdRzRm/fitness.png" alt="" /></div>
+                     <div><img src="https://i.ibb.co/s5QjXKP/essen.png" alt="" /></div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+
+let onSlide = false;
+
+window.addEventListener("load", () => {
+   autoSlide();
+
+   let dots = document.querySelectorAll(".banner_dot");
+   for (let i = 0; i < dots.length; i++) {
+      dots[i].addEventListener("click", () => slide(i));
+   }
+
+    let btnPrev = document.querySelector(".banner_button__prev");
+   let btnNext = document.querySelector(".banner_button__next");
+   btnPrev.addEventListener("click", () => slide(getItemActiveIndex() - 1));
+   btnNext.addEventListener("click", () => slide(getItemActiveIndex() + 1));
+})
+
+function autoSlide() {
+   setInterval(() => {
+      slide(getItemActiveIndex() + 1);
+   }, 3000); 
+}
+
+function slide(toIndex) {
+   if (onSlide)
+      return;
+   onSlide = true;
+
+   let itemsArr = Array.from(document.querySelectorAll(".banner_item"));
+   let itemActive = document.querySelector(".banner_item__active");
+   let itemActiveIndex = itemsArr.indexOf(itemActive);
+   let newItemActive = null;
+
+   if (toIndex > itemActiveIndex) {
+      // check if toIndex exceeds the number of banner items
+      if (toIndex >= itemsArr.length) {
+         toIndex = 0;
+      }
+
+      newItemActive = itemsArr[toIndex];
+
+      // start transition
+      newItemActive.classList.add("banner_item__pos_next");
+      setTimeout(() => {
+         newItemActive.classList.add("banner_item__next");
+         itemActive.classList.add("banner_item__next");
+      }, 20);
+   } else {
+      // check if toIndex exceeds the number of banner items
+      if (toIndex < 0) {
+         toIndex = itemsArr.length - 1;
+      }
+
+      newItemActive = itemsArr[toIndex];
+
+      // start transition
+      newItemActive.classList.add("banner_item__pos_prev");
+      setTimeout(() => {
+         newItemActive.classList.add("banner_item__prev");
+         itemActive.classList.add("banner_item__prev");
+      }, 20);
+   }
+
+   // remove all transition class and switch active class
+   newItemActive.addEventListener("transitionend", () => {
+      itemActive.className = "banner_item";
+      newItemActive.className = "banner_item banner_item__active";
+      onSlide = false;
+   }, {
+      once: true
+   });
+
+   slideIndicator(toIndex);
+}
+
+function getItemActiveIndex() {
+   let itemsArr = Array.from(document.querySelectorAll(".banner_item"));
+   let itemActive = document.querySelector(".banner_item__active");
+   let itemActiveIndex = itemsArr.indexOf(itemActive);
+   return itemActiveIndex;
+}
+
+function slideIndicator(toIndex) {
+   let dots = document.querySelectorAll(".banner_dot");
+   let dotActive = document.querySelector(".banner_dot__active");
+   let newDotActive = dots[toIndex];
+
+   dotActive.classList.remove("banner_dot__active");
+   newDotActive.classList.add("banner_dot__active");
+}
+</script>

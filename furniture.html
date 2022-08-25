@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniture</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet'>
+
+
+    
+    <style>
+        *{
+            font-family:'Muli';
+        }
+
+
+        .top {
+            height: 50px;
+            background-color: #FAFAFA;
+        }
+        .top>div div{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        .top>div{
+            width: 75%;
+            margin: auto;
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+        }
+        #product_box{
+            width: 75%;
+            margin: auto;
+            display: flex;
+            margin-bottom: 100px;
+            /* border: 5px solid black; */
+            justify-content: space-between;
+            gap: 30px;
+
+        }
+        #sidebar{
+            margin-top: 30px;
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 12px;
+            color: #717171;
+            margin-right: 50px;
+        
+        }
+        #sidebar>div{
+            margin-bottom: 25px;
+        }
+        #product_containor{
+            width: 90%;
+            margin: auto;
+            display: grid;
+            margin-top: 100px;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px 50px;
+            /* border: 5px solid blue; */
+        }
+        .a{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        input+p{
+            display: inline;
+        }
+        input[type="checkbox"]{
+            width: 20px;
+            height: 20px;
+        }
+        .checkbox div{
+            width: 75%;
+         display: flex;
+         justify-content: flex-start;
+         align-items: center;
+         gap: 15px;
+        }
+        .product_cards{
+            position: relative;
+        }
+       .product_cards .view{
+        position: absolute;
+        opacity: 0;
+        transition: 0s;
+            /* display: none; */
+            
+        }
+        .product_cards:hover .view{
+            background-color: #fff;
+            opacity: 1;
+            transition-delay: 0.3s;
+            z-index: 1;
+            /* display: block; */
+            
+        }
+   
+        #viewbtn{
+            margin-top: 15px;           
+            padding: 10px 85px;
+            border-radius: 15px;
+            font-size: 15px;
+            color: #1DBDC0;
+            border:0.5px solid #1DBDC0;
+            background-color: transparent;
+        }
+        .mo{
+            color: #717171;
+        }
+        #months{
+            width: 95%;
+            height: 5px;
+            box-sizing: border-box;
+        }
+        #month_number{
+            width: 95%;
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+        }
+        @media all and (min-width:320px) and (max-width:500px){
+            #product_box{
+                width: 100%;
+            }
+
+            #product_containor{
+                width: 85%;
+                margin: auto;
+                grid-template-columns: repeat(1,1fr);
+            }
+            #sidebar{
+                display: none;
+            }
+        }
+
+        @media all and (min-width:500px) and (max-width:800px){
+            #product_box{
+                width: 100%;
+            }
+            #product_containor{
+                width: 90%;
+                margin: auto;
+                grid-template-columns: repeat(2,1fr);
+            }
+            #sidebar{
+                display: none;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="top">
+        <div class="wid">
+        <div>
+            <p>Home > </p>
+            <p>Furniture ></p>
+        </div>
+        <div>
+            <p>Packages</p>
+            <p>Furniture</p>
+            <p>Appliances</p>
+            <p>Electronics</p>
+            <p>Fitness</p>
+        </div>
+        </div>
+    </div>
+    <div id="product_box">
+        <div id="sidebar">
+            <div class="a">
+                <p>Filters</p>
+                <button>Reset</button>
+            </div>
+            <div class="slider">
+                <h3>CHOOSE RENTAL TENURE</h3>
+                <input type="range" id="months" min="0" value="0" max="2" step="1" list="volsettings">
+<datalist id="volsettings">
+  <option>0</option>
+  <option>1</option>
+  <option>2</option>
+</datalist>
+<div id="month_number">
+    <p>3</p>
+    <p>6</p>
+    <p>12</p>
+</div>
+
+
+            </div>
+
+            <div class="check">
+                <h3>PRODUCT TYPE</h3>
+                <div class="checkbox">
+
+                   <div> <input type="checkbox" id="bedroom" value="bedroom"><p>Bedroom</p></div>
+                   <div>  <input type="checkbox" id="living" value="living_room"><p>Living Room</p></div>
+                    <div> <input type="checkbox" id="baby" value="baby_furniture"><p>Baby Furniture</p></div>
+                        <div>  <input type="checkbox" id="kitchen" value="kitchen"><p>Kitchen nd Dining</p></div>
+                            <div>  <input type="checkbox" id="wfh" value="wfh"><p>WFH</p></div>
+                </div>
+            
+            </div>
+
+        </div>
+        <div id="product_containor">
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+let livingroom_data=[{
+img:"https://i.ibb.co/ssZb2yY/xn610pga-500x500.jpg",
+title:"Felix 1-Seater Sofa",
+price:"379"
+},
+{
+img:"https://i.ibb.co/kxjvNFb/is70bee5-500x500.jpg",
+title:"Oliver 3-Seater Sofa (Blue)",
+price:"559"
+},{
+img:"https://i.ibb.co/BcX67Mn/tyjcmnwb-500x500.jpg",
+title:"Pixar TV Unit",
+price:"239"
+},{
+img:"",
+title:"Saddle Shoe Rack Large",
+price:"189"
+},{
+img:"https://i.ibb.co/dQ40d5g/6jks7lk8-500x500.jpg",
+title:"Felix 3-Seater Sofa (Black)",
+price:"789"
+},{
+img:"https://i.ibb.co/NsKN4h2/lfg6bk2a-500x500.jpg",
+title:"Rex 3-Seater Sofa",
+price:"659"
+},{
+img:"https://i.ibb.co/kxb6h2J/tqddqxw9-500x500.jpg",
+title:"Rex 1-Seater Sofa (Black)",
+price:"319"
+},{
+img:"https://i.ibb.co/gzzZwfv/0qiq5edb-500x500.jpg",
+title:"Barney Leather Decliner (Brown)",
+price:"799"
+},{
+img:"https://i.ibb.co/HTQsy9J/sc4mwkso-500x500.jpg",
+title:"Chesire Fbric Sofa Cum Bed (Green)",
+price:"1049"
+},{
+img:"https://i.ibb.co/WFSk67G/5jxsekke-500x500.jpg",
+title:"Velma 3-Seater Sofa (Teal)",
+price:"489"
+},{
+img:"https://i.ibb.co/YhHQS2d/cl07o74j-500x500.jpg",
+title:"Robin Futon Red Large",
+price:"489"
+},]
+
+let bedroom_data=[{
+    img:"https://i.ibb.co/Qv0cryh/dqu1k65a-500x500-1.jpg",
+    title:"Queen Foam Matress (6*5)",
+    price:"259"
+    
+},
+{
+    img:"https://i.ibb.co/Qv0cryh/dqu1k65a-500x500-1.jpg",
+    title:"Queen Foam Matress (6*6)",
+    price:"299"
+    
+},{
+    img:"https://i.ibb.co/Qv0cryh/dqu1k65a-500x500-1.jpg",
+    title:"Queen Foam Matress (6*3)",
+    price:"149"
+    
+},{
+    img:"https://i.ibb.co/fkxdT64/ikl0fdjc-500x500-1.jpg",
+    title:"Napster Metal Single Bed (6*3)",
+    price:"249"
+    
+},{
+    img:"https://i.ibb.co/6FKBBj0/j0xbbocy-500x500.jpg",
+    title:"Napster Metal Queen Bed (6*5)",
+    price:"319"
+    
+},{
+    img:"https://i.ibb.co/HdKXHTj/7i306dfx-500x500.jpg",
+    title:"Aurora Wooden Queen Bed(6*5)",
+    price:"539"
+    
+},{
+    img:"https://i.ibb.co/bNKGKXh/pemzyedy-500x500.jpg",
+    title:"Single LX Ortho Pocket Spring Mattress (6.6*3)",
+    price:"449"
+    
+},{
+    img:"https://i.ibb.co/6DSX76p/u5j0j47b-500x500.jpg",
+    title:"King Ortho Pocket Spring Mattress (6.6*6)",
+    price:"729"
+    
+},]
+
+
+let kitchen_data=[{
+    img:"https://i.ibb.co/StDZZRd/jqccn9bx-500x500.jpg",
+    title:"Paise 4-Seater Dining Table & Chairs",
+    price:"799"
+
+},
+{
+    img:"https://i.ibb.co/Tg78FFK/0ahsljnf-500x500.jpg",
+    title:"Heston 4-Seater Dining Table & Chairs",
+    price:"799"
+    
+},{
+    img:"https://i.ibb.co/XScpwYJ/jagaq6ov-500x500.jpg",
+    title:"Tyler 6-Seater Dining Table & Chairs",
+    price:"799"
+    
+},{
+    img:"https://i.ibb.co/j44mgb2/bhpxawks-500x500.jpg",
+    title:"Tyler 4-Seater Dining Table & Chairs",
+    price:"799"
+    
+},{
+    img:"https://i.ibb.co/7bcMYkq/jotwg0bl-500x500.jpg",
+    title:"Alton 4-Seater Dining Table & Chairs",
+    price:"799"
+    
+},{
+    img:"https://i.ibb.co/zJmB1L3/2qxe35gr-500x500-1.jpg",
+    title:"Heston 6-Seater Dining Table & Chairs",
+    price:"799"
+    
+},{
+    img:"https://i.ibb.co/Dff2Pg2/nhkwo8i6-500x500.jpg",
+    title:"Macro 4-Seater Dining Table & Chairs",
+    price:"799"
+    
+},];
+
+let baby_data=[{
+    img:"https://i.ibb.co/gDKDgS9/s0yo6ill-500x500.jpg",
+    title:"IKEA Mammut Table and Chair Set",
+    price:"799"
+    
+},
+{
+    img:"https://i.ibb.co/gMLvGy2/yvof1k0h-500x500.jpg",
+    title:"Antilop Highchair with Tray",
+    price:"799"
+    
+},{
+    img:"https://i.ibb.co/mv1ZFLk/jxb4nxam-500x500.jpg",
+    title:"Baby Cat Crib With Mattress",
+    price:"799"
+    
+},{
+    img:"https://i.ibb.co/0n3Vq2n/9y16aj37-500x500.jpg",
+    title:"Solgul Baby Cat",
+    price:"799"
+    
+},{
+    img:"https://i.ibb.co/RPh3Jz6/ne1morv1-500x500.jpg",
+    title:"Mala Easel Board by IKEA",
+    price:"799"
+    
+},];
+
+let wfh_data=[{
+    img:"https://i.ibb.co/kMvrHQD/em6h6xgy-250x250.jpg",
+    title:"Stuart Study Table",
+    price:"299"
+
+},
+{
+    img:"https://i.ibb.co/9YXP6yv/ggtbqrqq-250x250.jpg",
+    title:"Morris Office Chair",
+    price:"199"
+    
+},{
+    img:"https://i.ibb.co/t4kmb9X/9kxg1c3a-250x250.jpg",
+    title:"Exec Workdtation",
+    price:"129"
+    
+},{
+    img:"https://i.ibb.co/FsnnQdv/pzts2dn4-250x250.jpg",
+    title:"Rowling Bookshelf Medium",
+    price:"109"
+    
+},{
+    img:"https://i.ibb.co/8jnYVLR/1eoam6o5-250x250-1.jpg",
+    title:"Paise Study Table",
+    price:"179"
+    
+},]
+
+
+
+
+    let ref_data=[{
+        img:"https://i.ibb.co/n6MwVHM/juqzr42r-250x250.jpg",
+        title:"Single Door Fridge (190 Litre)",
+    price:"779"
+        
+
+    },
+    {
+        img:"https://i.ibb.co/Gct5STL/03rx0vpt-250x250.jpg",
+        title:"Mini Fridge",
+    price:"479"
+        
+
+    },{
+        img:"https://i.ibb.co/kqB1xpy/m62sgwfs-250x250.jpg",
+        title:"Single Door Fridge",
+    price:"679"
+        
+
+    },{
+        img:"https://i.ibb.co/cN8rcPJ/9q7xaemi-250x250.jpg",
+        title:"Double Door Fridge",
+    price:"1179"
+        
+
+    },{
+        img:"https://i.ibb.co/P4MxMnv/ti9hy351-250x250.jpg",
+        title:"Single Door Fridge (210 Litre)",
+    price:"879"
+        
+
+    },]
+
+    let tv_data=[{
+        img:"https://i.ibb.co/ZW16tpd/hc6uinv1-250x250.jpg",
+        title:"Smart LED TV -32",
+    price:"879"
+        
+
+    },
+    {
+        img:"https://i.ibb.co/5GJ9QvG/s782cupb-250x250.jpg",
+        title:"LED TV -32",
+    price:"979"
+        
+
+    },{
+        img:"https://i.ibb.co/3vzn1qL/qzslv30s-250x250.jpg",
+        title:"Smart LED TV -43",
+    price:"1279"
+        
+
+    },{
+        img:"https://i.ibb.co/9YzHGBP/011yi0xb-250x250.jpg",
+        title:"LED TV -24",
+    price:"579"
+        
+
+    },{
+        img:"https://i.ibb.co/7tP5Z8F/ujm70apk-250x250.jpg",
+        title:"Smart LED TV -49",
+    price:"1379"
+        
+
+    },]
+
+    let airpurifier_data=[{
+        img:"https://i.ibb.co/0CDnmy5/dgvhqn76-250x250.jpg",
+        title:"Livpure - Smart Water Purifier",
+    price:"479"
+        
+
+    },
+    {
+        img:"https://i.ibb.co/k0X8C9q/glazai2e-250x250.jpg",
+        title:"Air Purifier",
+    price:"559"
+        
+
+    },{
+        img:"https://i.ibb.co/NVnGwKq/rypid344-250x250.jpg",
+        title:"Kent Pride Plus Water Purifier",
+    price:"779"
+        
+
+    },{
+        img:"https://i.ibb.co/jLk2vyM/twnq03t0-250x250.jpg",
+        title:"Kent Max Water Purifier",
+    price:"489"
+        
+
+    }]
+
+    let wmachine_data=[{
+        img:"https://i.ibb.co/KV4511n/dwlfh1xi-250x250.jpg",
+        title:"Semi Automatic Washing Machine",
+    price:"779"
+        
+
+    },
+    {
+        img:"https://i.ibb.co/kgHqX4F/xf04vdtv-250x250.jpg",
+        title:"Front Load Washing Machine",
+    price:"479"
+        
+
+    },{
+        img:"https://i.ibb.co/m6tkxfV/ex9dpggj-250x250.jpg",
+        title:"Cloth Dryer",
+    price:"979"
+        
+
+    },{
+        img:"https://i.ibb.co/G301Stk/g8cndm7d-250x250-1.jpg",
+        title:"Top Load Washing Machine",
+    price:"1129"
+
+    },]
+
+    let ac_data=[{
+        img:"https://i.ibb.co/KsSLLst/tj583ult-250x250.jpg",
+        title:"Air Condition 1 Ton",
+    price:"1779"
+        
+
+    },
+    {
+        img:"https://i.ibb.co/RP6wYTK/v1c75c2j-250x250.jpg",
+        title:"Air Condition 1 Ton",
+    price:"1879"
+        
+
+    },{
+        img:"https://i.ibb.co/MDLvYHK/05gpq2h8-250x250.jpg",
+        title:"Air Condition 1.5 Ton",
+    price:"2279"
+        
+
+    },]
+
+    
+
+
+    let bed=document.getElementById("bedroom");
+    let l_room=document.getElementById("living");
+    let kitchen=document.getElementById("kitchen");
+    let babyf=document.getElementById("baby");
+    let wfh=document.getElementById("wfh");
+
+    function initial(){
+        bed.checked=true;
+    display(bedroom_data)
+    }
+    initial();
+    bed.addEventListener("change",function(){
+        if(bed.checked===true){
+            l_room.checked=false;
+            kitchen.checked=false;
+            babyf.checked=false;
+            wfh.checked=false;
+        setTimeout(function(){
+        display(bedroom_data)
+            },1000)
+
+    }
+    })
+
+    wfh.addEventListener("change",function(){
+        if(wfh.checked===true){
+            l_room.checked=false;
+            kitchen.checked=false;
+            babyf.checked=false;
+            bed.checked=false;
+            setTimeout(function(){
+                display(wfh_data)
+            },1000)
+    }
+    })
+
+    babyf.addEventListener("change",function(){
+        if(babyf.checked===true){
+            l_room.checked=false;
+            kitchen.checked=false;
+            bed.checked=false;
+            wfh.checked=false;
+        setTimeout(function(){
+        display(baby_data)
+            },1000)
+    }
+    })
+
+    l_room.addEventListener("change",function(){
+        if(l_room.checked===true){
+            bed.checked=false;
+            kitchen.checked=false;
+            babyf.checked=false;
+            wfh.checked=false;
+        setTimeout(function(){
+        display(livingroom_data)
+            },1000)
+        
+    }
+    })
+
+    kitchen.addEventListener("change",function(){
+   
+        if(kitchen.checked===true){
+            l_room.checked=false;
+            bed.checked=false;
+            babyf.checked=false;
+            wfh.checked=false;
+        setTimeout(function(){
+        display(kitchen_data)
+            },1000)
+    }
+    })
+   
+    
+
+
+   
+         
+
+
+
+     
+
+
+    function display(data){
+
+       let cont =document.getElementById("product_containor");
+
+
+        cont.innerHTML="";
+
+        data.forEach(({img,title,price}) => {
+
+            let div=document.createElement("div")
+            div.setAttribute("class","product_cards");
+
+            let btn_div=document.createElement("div");
+     btn_div.setAttribute("class","view");
+     let btn=document.createElement("button")
+     btn.innerText="Quick View";
+     btn.setAttribute("id","viewbtn")
+
+     btn_div.append(btn);
+
+     let span=document.createElement("span");
+     span.innerText="mo";
+     span.setAttribute("class","mo")
+
+            let i=document.createElement("img")
+            i.src=img;
+            i.style.width="100%"
+            let t=document.createElement("h3");
+            t.innerText=title;
+            let p=document.createElement("p");
+            p.innerText=price+"/";
+            p.style.display="inline"
+
+
+            div.append(i,t,p,span,btn_div)
+            cont.append(div);
+
+
+
+        });
+
+    }
+
+</script>
+
