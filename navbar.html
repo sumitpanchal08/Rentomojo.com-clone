@@ -173,11 +173,6 @@
             #navbar>div:nth-child(1)>img:nth-child(2){
                 margin-left: 15px;
             }
-            /* #navbar>div:nth-child(){
-                display: block;
-                margin-right: 80%;
-                margin-left: 10px;
-            } */
             #navbar>div:nth-child(2){
                 display: none;
             }
@@ -213,7 +208,6 @@
 </head>
 <body>
     <div id="navbar">
-        <!-- <div><img src="https://www.rentomojo.com/public/images/Home/new/ham__icon.svg" alt=""></div> -->
         <div><img src="https://www.rentomojo.com/public/images/Home/new/ham__icon.svg" id="dropdown_menu_open" alt=""><img src="https://www.rentomojo.com/public/images/Home/new/logo.svg" alt=""></div>
         <div><img src="https://www.rentomojo.com/public/images/logo.svg" alt=""></div>
         <div><div id="location"><p id="change_location">Delhi</p><img src="https://cdn.icon-icons.com/icons2/1904/PNG/512/downarrow_121316.png" alt=""></div></div>
@@ -264,8 +258,11 @@
     let city2=new location_obj("Chennai","img/chennai_location.png");
     let city3=new location_obj("Gurgaon","img/gurgaon_location.png");
     let city4=new location_obj("Noida","img/noida_location.png");
+    let city5=new location_obj("Delhi","img/delhi_location.png");
+    let city6=new location_obj("Mumbai","img/mumbai_location.png");
+    let city7=new location_obj("Pune","img/pune_location.png");
 
-    location_data.push(city1,city2,city3,city4);
+    location_data.push(city1,city2,city3,city4,city5,city6,city7);
     showInLocationBox(location_data);
     function showInLocationBox(data){
         let box=document.getElementById("location_box");
