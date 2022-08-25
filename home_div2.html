@@ -1,152 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-<link rel="stylesheet" href="./swiper-bundle.min.css">
+    <link rel="stylesheet" href="./swiper-bundle.min.css">
     <style>
-/* swiper */
+        /* swiper */
 
 
 
 
-    body{
-        min-height: 100vh;
-        display:flex;
-        align-items: center;
-        justify-content:center;
-        background-color: #EFEFEF;
-    }
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #EFEFEF;
+        }
 
-    .slide-container{
-        max-width:1120px;
-        width:100%;
-        background-color:whitesmoke;
-        padding:40px 0;
+        .slide-container {
+            max-width: 1120px;
+            width: 100%;
+            background-color: whitesmoke;
+            padding: 40px 0;
 
-    }
-    .card{
-        width:320px;
-        border-radius: 25px;
-        background-color: #FFF;
-    }
+        }
 
-    .slide-content{
-        margin:0 40px;
-        
-    }
+        .card {
+            width: 320px;
+            border-radius: 25px;
+            background-color: #FFF;
+        }
 
-    .image-content,.card-content{
-        display:flex;
-        flex-direction:column;
-        align-items: center;
-    padding: 10px 14px;
-    }
+        .slide-content {
+            margin: 0 40px;
 
-    .image-content{
-       
-        row-gap:5px;
-    }
+        }
 
-   .card-image{
-    position:relative;
-    height:150px;
-    width:150px;
-    background-color:#FFF;
-    padding:3px;
+        .image-content,
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 14px;
+        }
 
-   }
+        .image-content {
 
-   .card-image .card-img{
-    height:100%;
-    width:100%;
-    object-fit: cover;
-    border: 1px solid black;
-   }
+            row-gap: 5px;
+        }
 
-   .name{
-    font-size:18px;
-    font-weight:500;
-    color: #333;
-   }
+        .card-image {
+            position: relative;
+            height: 150px;
+            width: 150px;
+            background-color: #FFF;
+            padding: 3px;
 
-   .rent{
-    font-size:14px;
-    color:#707070;
-    text-align: center;
-   }
-   .see{
-    color:red;
-    border:1px solid red;
-    font-size:16px;
-    padding:8px 16px;
-    border-radius: 5px;
-   }
-   .see:hover{
-    background-color: red;
-    color:white;
-    cursor:pointer;
-   }
+        }
 
-   .swiper-container {
-      width: 100%;
-      height: 100%;
-    }
-    .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
+        .card-image .card-img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border: 1px solid black;
+        }
 
-      /* Center slide text vertically */
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      -webkit-align-items: center;
-      align-items: center;
-    }
+        .name {
+            font-size: 18px;
+            font-weight: 500;
+            color: #333;
+        }
 
-    #un{
-            
+        .rent {
+            font-size: 14px;
+            color: #707070;
+            text-align: center;
+        }
+
+        .see {
+            color: red;
+            border: 1px solid red;
+            font-size: 16px;
+            padding: 8px 16px;
+            border-radius: 5px;
+        }
+
+        .see:hover {
+            background-color: red;
+            color: white;
+            cursor: pointer;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        #un {
+
             margin-top: -20px;
             text-decoration: underline;
             text-decoration-color: red;
         }
     </style>
 </head>
+
 <body>
     <div>
-                           <div>
-                            <h2>You'll love to</h2>
-                            <h2 id="un">take these home</h2>
+        <div id="slider_button_text_arrange">
+            <h2>You'll love to</h2>
+            <h2 id="un">take these home</h2>
 
-                            <div class="swiper-button-next"></div>
-		                  <div class="swiper-button-prev"></div>
-                        </div>
-    <!--  -->
-    <div class="slide-container swiper">
-        <div class="slide-content">
-            <div id="card-wrapper" class="card-wrapper swiper-wrapper">
-               
-              
-                                                      
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        <!--  -->
+        <div class="slide-container swiper">
+            <div class="slide-content">
+                <div id="card-wrapper" class="card-wrapper swiper-wrapper">
+
+
+
+                </div>
+
+
+
+
             </div>
-
-
-           
-	        
         </div>
     </div>
-</div>
 </body>
+
 </html>
 
 <script src="./swiper-bundle.min.js"></script>
@@ -156,187 +164,197 @@
 
 
 <script>
-var swiper = new Swiper('.slide-content', {
-      slidesPerView: 4,
-      spaceBetween: 30,
-      loop: true,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
+    var swiper = new Swiper('.slide-content', {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
     });
 
-    
-
-let details=[
-    {   img:"https://p.rmjo.in/productSquare/eoynt3bs-500x500.jpg",
-        name:"Air Purifier",
-        rent:"Rent ₹469/month",
-        desc:"Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
-        size:"16inL x 14inB x 30inH",
-        features:"Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
-
-    },
-    {   img:"https://p.rmjo.in/productSquare/hc4dc706-500x500.jpg",
-        name:"Atticus Wooden Single Platform Bed",
-        rent:"Rent ₹339/month",
-        desc:"The Atticus single bed trolley serves multiple purposes. Apart from it suiting all home decor styles, it can be used as a divan in your living room as well. You can move it around your home with ease",
-        size:"73.4inL x 37.4inB x 7inH",
-        features:"Low weight    Easy mobility   Movable bed frame   Mattress Size: 72inL x 36",
 
 
-    },
-    {   img:"https://p.rmjo.in/productSquare/esf6ag3q-500x500.jpg",
-        name:"Morris Office Chair",
-        rent:"Rent ₹199/month",
-        desc:"Laze around or work, all in comfort with the Morris Office Chair! Ergonomically designed, keeping body postures in mind, and low maintenance, it’s perfect for both home and office use",
-        size:"24inL x 17inB x 41inH",
-        features:"Cushioned seat  Adjustable height & backrest   Wheeled base   Metal frame   Fixed armrest",
-        
+    let details = [
+        {
+            img: "https://p.rmjo.in/productSquare/eoynt3bs-500x500.jpg",
+            name: "Air Purifier",
+            rent: "Rent ₹469/month",
+            desc: "Perfectly designed to keep constant flow of clean air in your home, our air purifier removes allergens, pollen, odour & dust. Enjoy the breath of fresh air and breathe the difference. This purifier is perfect for a 10 ft by 12 ft room",
+            size: "16inL x 14inB x 30inH",
+            features: "Capacity/Size : 400 Sq.Ft  Brand: Whirlpool/Philips/Haier  Air Quality Indicator"
 
-    },
-    {   img:"https://p.rmjo.in/productSquare/n97vj5on-500x500.jpg",
-        name:"Microwave Solo 20L",
-        rent:"Rent ₹299/month",
-        desc:"Equipped with a powerful magnetron, this microwave is ideal for heating and boiling based cooking.",
-        size:"19inL x 15inB x 11inH",
-        features:"Capacity/Size : 17L-20L    Brand: Samsung/Bajaj/Whirlpool/Haier/LG    Used for Heating, Defrosting & Basic Cooking.  Suitable for small families 1-3 people.",
-        
+        },
+        {
+            img: "https://p.rmjo.in/productSquare/hc4dc706-500x500.jpg",
+            name: "Atticus Wooden Single Platform Bed",
+            rent: "Rent ₹339/month",
+            desc: "The Atticus single bed trolley serves multiple purposes. Apart from it suiting all home decor styles, it can be used as a divan in your living room as well. You can move it around your home with ease",
+            size: "73.4inL x 37.4inB x 7inH",
+            features: "Low weight    Easy mobility   Movable bed frame   Mattress Size: 72inL x 36",
 
-    },
-    {   img:"https://p.rmjo.in/productSquare/t9nfjx7q-500x500.jpg",
-        name:"Single Door Fridge",
-        rent:"Rent ₹809/month",
-        desc:"Our single door fridge has a fast and effective cooling system to keep your food fresh. While it’s quick cooling saves you time, the energy efficient technology ensures great cooling at low costs.",
-        size:"21inL x 21inB x 52inH",
-        features:"Capacity/Size : 210 L   Single Door Fridge    Brand may vary   Whirlpool/Haier/Godrej/Samsung    2 Star or above",
-        
 
-    },
-    {   img:"https://p.rmjo.in/productSquare/dwp7yb0x-500x500.jpg",
-        name:"Rowling Bookshelf Medium",
-        rent:"Rent ₹109/month",
-        desc:"Give your home a personalised library with the Rowling bookshelf. It doubles up as a great space to display your knick knacks or as a much needed study rack to access all study material with ease.",
-        size:"24inL x 12inB x 36inH",
-        features:"3 shelf configuration   Wenge finish",
-        
+        },
+        {
+            img: "https://p.rmjo.in/productSquare/esf6ag3q-500x500.jpg",
+            name: "Morris Office Chair",
+            rent: "Rent ₹199/month",
+            desc: "Laze around or work, all in comfort with the Morris Office Chair! Ergonomically designed, keeping body postures in mind, and low maintenance, it’s perfect for both home and office use",
+            size: "24inL x 17inB x 41inH",
+            features: "Cushioned seat  Adjustable height & backrest   Wheeled base   Metal frame   Fixed armrest",
 
-    },
-    {   img:"https://p.rmjo.in/productSquare/mnuazvk3-500x500.jpg",
-        name:"Miller Office Chair",
-        rent:"Rent ₹149month",
-        desc:"At work, comfort is key. And comfort it is that you get with the Miller Office Chair. An essential for both work and home, this revolving chair comes with a push back mechanism and low back",
-        size:"22inL x 18inB x 39inH",
-        features:"Fabric covering   height & backrest  Wheeled base     Metal frame   Handle Shape may vary",
-        
 
-    },
-    {   img:"https://p.rmjo.in/productSquare/em6h6xgy-500x500.jpg",
-        name:"Stuart Study Table",
-        rent:"Rent ₹149/month",
-        desc:"Equipped with a powerful magnetron, this microwave is ideal for heating and boiling based cooking.",
-        size:"19inL x 15inB x 11inH",
-        features:"Capacity/Size : 17L-20L     Brand: Samsung/Bajaj/Whirlpool/Haier/LG    Used for Heating, Defrosting & Basic Cooking.    Suitable for small families 1-3 people.",
-        
+        },
+        {
+            img: "https://p.rmjo.in/productSquare/n97vj5on-500x500.jpg",
+            name: "Microwave Solo 20L",
+            rent: "Rent ₹299/month",
+            desc: "Equipped with a powerful magnetron, this microwave is ideal for heating and boiling based cooking.",
+            size: "19inL x 15inB x 11inH",
+            features: "Capacity/Size : 17L-20L    Brand: Samsung/Bajaj/Whirlpool/Haier/LG    Used for Heating, Defrosting & Basic Cooking.  Suitable for small families 1-3 people.",
 
-    },
-    {   img:"https://p.rmjo.in/productSquare/em6h6xgy-500x500.jpg",
-        name:"Stowy 2-Door Wardrobe",
-        rent:"Rent ₹409/month",
-        desc:"Say goodbye to clutter with Stowy 2-Door Wardrobe. The Stowy Wardrobe is your best buddy for all those unexpected visits from your folks and impromptu sleepovers. With varying shelf sizes and utilitarian drawers, Stowy wardrobe ensures that your bedroom will always stay uncluttered and organized—just the way you like it.",
-        size:"29inL x 19inB x 73inH",
-        features:"Wood finish: Wenge    Material: Engineered wood    4 Shelf+1 drawer    Easy-access clothing rail+drawers    Comes with a rounded mirror",
-        
 
-    },
-    {   img:"https://p.rmjo.in/productSquare/2yrmpjxd-500x500.jpg",
-        name:"Rowling Bookshelf Small",
-        rent:"Rent ₹109/month",
-        desc:"Give your home a personalised library with the Rowling bookshelf. It doubles up as a great space to display your knick knacks or as a much needed study rack to access all study material with ease.",
-        size:"16inL x 12inB x 40inH",
-        features:"3 shelf configuration   Wenge finish",
-        
+        },
+        {
+            img: "https://p.rmjo.in/productSquare/t9nfjx7q-500x500.jpg",
+            name: "Single Door Fridge",
+            rent: "Rent ₹809/month",
+            desc: "Our single door fridge has a fast and effective cooling system to keep your food fresh. While it’s quick cooling saves you time, the energy efficient technology ensures great cooling at low costs.",
+            size: "21inL x 21inB x 52inH",
+            features: "Capacity/Size : 210 L   Single Door Fridge    Brand may vary   Whirlpool/Haier/Godrej/Samsung    2 Star or above",
+
+
+        },
+        {
+            img: "https://p.rmjo.in/productSquare/dwp7yb0x-500x500.jpg",
+            name: "Rowling Bookshelf Medium",
+            rent: "Rent ₹109/month",
+            desc: "Give your home a personalised library with the Rowling bookshelf. It doubles up as a great space to display your knick knacks or as a much needed study rack to access all study material with ease.",
+            size: "24inL x 12inB x 36inH",
+            features: "3 shelf configuration   Wenge finish",
+
+
+        },
+        {
+            img: "https://p.rmjo.in/productSquare/mnuazvk3-500x500.jpg",
+            name: "Miller Office Chair",
+            rent: "Rent ₹149month",
+            desc: "At work, comfort is key. And comfort it is that you get with the Miller Office Chair. An essential for both work and home, this revolving chair comes with a push back mechanism and low back",
+            size: "22inL x 18inB x 39inH",
+            features: "Fabric covering   height & backrest  Wheeled base     Metal frame   Handle Shape may vary",
+
+
+        },
+        {
+            img: "https://p.rmjo.in/productSquare/em6h6xgy-500x500.jpg",
+            name: "Stuart Study Table",
+            rent: "Rent ₹149/month",
+            desc: "Equipped with a powerful magnetron, this microwave is ideal for heating and boiling based cooking.",
+            size: "19inL x 15inB x 11inH",
+            features: "Capacity/Size : 17L-20L     Brand: Samsung/Bajaj/Whirlpool/Haier/LG    Used for Heating, Defrosting & Basic Cooking.    Suitable for small families 1-3 people.",
+
+
+        },
+        {
+            img: "https://p.rmjo.in/productSquare/em6h6xgy-500x500.jpg",
+            name: "Stowy 2-Door Wardrobe",
+            rent: "Rent ₹409/month",
+            desc: "Say goodbye to clutter with Stowy 2-Door Wardrobe. The Stowy Wardrobe is your best buddy for all those unexpected visits from your folks and impromptu sleepovers. With varying shelf sizes and utilitarian drawers, Stowy wardrobe ensures that your bedroom will always stay uncluttered and organized—just the way you like it.",
+            size: "29inL x 19inB x 73inH",
+            features: "Wood finish: Wenge    Material: Engineered wood    4 Shelf+1 drawer    Easy-access clothing rail+drawers    Comes with a rounded mirror",
+
+
+        },
+        {
+            img: "https://p.rmjo.in/productSquare/2yrmpjxd-500x500.jpg",
+            name: "Rowling Bookshelf Small",
+            rent: "Rent ₹109/month",
+            desc: "Give your home a personalised library with the Rowling bookshelf. It doubles up as a great space to display your knick knacks or as a much needed study rack to access all study material with ease.",
+            size: "16inL x 12inB x 40inH",
+            features: "3 shelf configuration   Wenge finish",
+
+
+        }
+    ]
+
+    let card_wrapper = document.getElementById("card-wrapper");
+    let productArr = JSON.parse(localStorage.getItem("products")) || [];
+
+
+
+
+    function Append(details) {
+
+        card_wrapper.innerHTML = null;
+
+
+        details.forEach(function (el) {
+
+            let div = document.createElement("div");
+
+            let rent = document.createElement("p");
+            rent.className = "rent";
+            rent.innerText = el.rent;
+
+            let button = document.createElement("button");
+            button.className = "see"
+            button.innerText = "See More";
+
+            button.addEventListener("click", function () {
+                productArr.push(el);
+                localStorage.setItem("products", JSON.stringify(productArr));
+                window.location.href = "product.html";
+
+
+            })
+
+
+
+
+            div.append(rent, button);
+
+            let name = document.createElement("h2");
+            name.className = "name"
+            name.innerText = el.name;
+
+            let card_image = document.createElement("div");
+            card_image.className = "card-image";
+            let img = document.createElement("img");
+            img.className = "card-img"
+            img.src = el.img;
+            card_image.append(img);
+
+            let card_content = document.createElement("div");
+            card_content.className = "card-content"
+            card_content.append(div, name);
+
+
+
+            let overlay = document.createElement("span");
+            overlay.className = "overlay";
+            overlay.append(card_image, card_content);
+
+            let image_content = document.createElement("div");
+            image_content.className = "image-content";
+            image_content.append(overlay);
+
+            let swiper_slide = document.createElement("div");
+            swiper_slide.className = "card swiper-slide"
+            swiper_slide.append(image_content);
+
+            card_wrapper.append(swiper_slide);
+
+
+        });
+
 
     }
-]
 
-let card_wrapper=document.getElementById("card-wrapper");
-let productArr=JSON.parse(localStorage.getItem("products"))||[];
-
-
-
-
-function Append(details){
-
-    card_wrapper.innerHTML=null;
-
-
-    details.forEach(function(el){
-
-    let div=document.createElement("div");
-    
-    let rent=document.createElement("p");
-    rent.className="rent";
-    rent.innerText=el.rent;
-    
-    let button=document.createElement("button");
-    button.className="see"
-    button.innerText="See More";
-
-    button.addEventListener("click",function(){
-       productArr.push(el);
-       localStorage.setItem("products",JSON.stringify(productArr));
-        window.location.href="product.html";
-        
-       
-    })
-
-
-    
-
-    div.append(rent,button);
-
-    let name=document.createElement("h2");
-    name.className="name"
-    name.innerText=el.name;
-
-    let card_image=document.createElement("div");
-    card_image.className="card-image";
-    let img=document.createElement("img");
-    img.className="card-img"
-    img.src=el.img;
-    card_image.append(img);
-
-    let card_content=document.createElement("div");
-    card_content.className="card-content"
-    card_content.append(div,name);
-
-    
-
-    let overlay=document.createElement("span");
-    overlay.className="overlay";
-    overlay.append(card_image,card_content);
-
-    let image_content=document.createElement("div");
-    image_content.className="image-content";
-    image_content.append(overlay);
-
-    let swiper_slide=document.createElement("div");
-    swiper_slide.className="card swiper-slide"
-    swiper_slide.append(image_content);
-
-    card_wrapper.append(swiper_slide);
-
-
-    });
-    
-
-}
-
-Append(details);
+    Append(details);
 
 </script>
