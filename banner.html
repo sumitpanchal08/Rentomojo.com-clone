@@ -5,13 +5,13 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Image Slider (Carousel) Part 2 | Coding's Time</title>
+   <title>Image Slider (banner) Part 2 | Coding's Time</title>
 
 
    <style>
 
 #items {
-        width:70%;
+        width:90%;
         margin: auto;
         display:grid;
         grid-template-columns: repeat(6,1fr);
@@ -22,8 +22,8 @@
     
       }
       #items div{
-         width: 80%;
-         margin: auto;
+         /* width: 100%; */
+         /* margin: auto; */
          margin-top: 20px;
 
       }
@@ -55,23 +55,23 @@
    box-sizing: border-box;
 }
 
-/* carousel */
-.carousel{
+/* banner */
+.banner{
    position: relative;
 }
 
-.carousel_inner{
+.banner_inner{
    width: 100%;
    overflow: hidden;
 }
 
-.carousel_inner::after{
+.banner_inner::after{
    content: "";
    display: block;
    clear: both;
 }
 
-.carousel_item{
+.banner_item{
    position: relative;
    float: left;
    display: none;
@@ -80,56 +80,56 @@
 }
 
 /* slide effect */
-.carousel_item__active,
-.carousel_item__pos_prev,
-.carousel_item__pos_next{
+.banner_item__active,
+.banner_item__pos_prev,
+.banner_item__pos_next{
    display: block;
 }
 
-.carousel_item__pos_prev{
+.banner_item__pos_prev{
    left: -100%;
 }
 
-.carousel_item__pos_next{
+.banner_item__pos_next{
    left: 100%;
 }
 
-.carousel_item__prev{
+.banner_item__prev{
    transform: translateX(100%);
    transition: transform 10s ease-in-out;
 }
 
-.carousel_item__next{
+.banner_item__next{
    transform: translateX(-100%);
    transition: transform .3s ease-in-out;
 }
 
 /* fade effect */
-.carousel__fade .carousel_item__pos_prev,
-.carousel__fade .carousel_item__pos_next{
+.banner__fade .banner_item__pos_prev,
+.banner__fade .banner_item__pos_next{
    left: 0;
    opacity: 0;
 }
 
-.carousel__fade .carousel_item__prev,
-.carousel__fade .carousel_item__next{
+.banner__fade .banner_item__prev,
+.banner__fade .banner_item__next{
    transform: none;
    opacity: 1;
    transition: opacity 0.3s ease-in-out;
 }
 
-.carousel__fade .carousel_item__active.carousel_item__prev,
-.carousel__fade .carousel_item__active.carousel_item__next{
+.banner__fade .banner_item__active.banner_item__prev,
+.banner__fade .banner_item__active.banner_item__next{
    opacity: 0;
 }
 
-/* carousel */
-.carousel_img{
+/* banner */
+.banner_img{
    display: block;
    width: 100%;
 }
 
-.carousel_caption{
+.banner_caption{
    position: absolute;
    top: 0;
    left: 0;
@@ -144,17 +144,17 @@
    z-index: 1;
 }
 
-.carousel_title{
+.banner_title{
    font-family: "Montserrat", sans-serif;
    font-weight: 600;
 }
 
-.carousel_description{
+.banner_description{
    margin-top: .75rem;
    line-height: 150%;
 }
 
-.carousel_indicator{
+.banner_indicator{
    position: absolute;
    bottom: 1rem;
    left: 50%;
@@ -165,7 +165,7 @@
    z-index: 1;
 }
 
-.carousel_dot{
+.banner_dot{
    display: block;
    padding: .25rem;
    background-color: rgba(255, 255, 255, .25);
@@ -175,13 +175,13 @@
    transition: background-color .8s ease-in-out;
 }
 
-.carousel_dot__active{
+.banner_dot__active{
    background-color: lightskyblue;
    cursor: default;
    pointer-events: none;
 }
 
-.carousel_control{
+.banner_control{
    position: absolute;
    top: 0;
    left: 0;
@@ -192,7 +192,7 @@
    height: 100%;
 }
 
-.carousel_button{
+.banner_button{
    display: block;
    padding-inline: 1rem;
    font-family: "Raleway", sans-serif;
@@ -205,26 +205,76 @@
    z-index: 1;
 }
 
-.carousel_button:hover{
+.banner_button:hover{
    color: rgba(135, 206, 250, .75);
 }
 .covid-warn{
-   padding-top: 25px;
-   width: 75%;
-   margin: auto;
-   border-radius: 30px;
-   height: 70px;
+   padding-top:25px;
+   padding-bottom: 15px;
+
+   width: 100%;
+   border-radius: 20px;
+   /* height: 70px; */
    text-align: center;
-   font-size: 14px;
    display: flex;
    justify-content: center;
    align-items: center;
    /* border: 5px solid black; */
    background-color: #D4E0E9;
-   margin-top:0px;
+   margin-top:-15px;
    
 
 
+}
+.covid-warn p{
+   width: 100%;
+   font-size: 14px;
+}
+
+@media all and (min-width:480px) and (max-width:720px) {
+
+   #cont{
+      /* display: none; */
+         width: 95%;
+         height: 400px;
+         margin: auto;
+         border-radius: 30px;
+         z-index:1;
+      }
+
+      .covid-warn p{
+   width: 90%;
+   margin: auto;
+   font-size:10px;
+} 
+
+
+
+   #items{
+      grid-template-columns: repeat(4,1fr);
+   }
+}
+@media all and (min-width:320px) and (max-width:480px) {
+
+   #cont{
+      /* display: none; */
+         width: 100%;
+         height: 400px;
+         margin: auto;
+         border-radius: 30px;
+         z-index:1;
+      }
+   
+    
+      .covid-warn p{
+   width: 90%;
+   margin: auto;
+   font-size:10px;
+}
+
+#items{
+   grid-template-columns: repeat(4,1fr);
+}
 }
 
    </style>
@@ -235,46 +285,47 @@
 
    <div id="cont">
 
-   <div class="carousel">
-      <div class="carousel_inner">
-         <div class="carousel_item carousel_item__active">
-            <img src="https://s.rmjo.in/WP-Web.png" alt="" class="carousel_img">
-            <div class="carousel_caption">
-               <h1 class="carousel_title">Change It As You See Fit</h1>
-               <p class="carousel_description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id cupiditate
+   <div class="banner">
+      <div class="banner_inner">
+         <div class="banner_item banner_item__active">
+            <img src="https://s.rmjo.in/WP-Web.png" alt="" class="banner_img">
+            <!-- <div class="banner_caption">
+               <h1 class="banner_title">Change It As You See Fit</h1>
+               <p class="banner_description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id cupiditate
                   corporis laudantium quae velit quam.</p>
-            </div>
+            </div> -->
          </div>
-         <div class="carousel_item">
-            <img src="https://s.rmjo.in/AirOKWeb%20(1).png" alt="" class="carousel_img">
-         </div>
-         <!-- <div class="carousel_item">
-            <img src="https://s.rmjo.in/WP-Web.png" alt="" class="carousel_img">
+         <div class="banner_item">
+            <img src="https://s.rmjo.in/AirOKWeb%20(1).png" alt="" class="banner_img">
+         <!-- </div>
+          <div class="banner_item">
+            <img src="https://s.rmjo.in/WP-Web.png" alt="" class="banner_img">
          </div> -->
+      </div> 
+
+
+      <div class="banner_indicator">
+         <button class="banner_dot banner_dot__active"></button>
+         <button class="banner_dot"></button>
+         <button class="banner_dot"></button>
       </div>
 
-
-      <div class="carousel_indicator">
-         <button class="carousel_dot carousel_dot__active"></button>
-         <button class="carousel_dot"></button>
-         <button class="carousel_dot"></button>
-      </div>
-
-      <div class="carousel_control">
-         <button class="carousel_button carousel_button__prev">
+      <div class="banner_control">
+         <button class="banner_button banner_button__prev">
             <i class="fas fa-chevron-left"></i>
          </button>
-         <button class="carousel_button carousel_button__next">
+         <button class="banner_button banner_button__next">
             <i class="fas fa-chevron-right"></i>
          </button>
       </div>
    </div>
-   </div>
-
    <div class="covid-warn">
       <p>
          Safety precautions during COVID-19. We’re taking additional steps and precautionary measures to protect our community from COVID-19.   <span><a href="">&nbsp&nbsp Know more ></a></span></p>
    </div>
+   </div>
+
+
 
    <div id="items">
       <div><img src="https://i.ibb.co/HhXHCsB/Screenshot-4335.png" alt=""/></div>
@@ -290,31 +341,28 @@
 </html>
 
 <script>
-//      * Creator           : Coding's Time
-//  * Youtube Channel   : https://www.youtube.com/channel/UC6dnKqrImGWqMb9ty1n0Ziw
-//  * Github Profile    : https://github.com/codingstime
-//  */
+
 
 let onSlide = false;
 
 window.addEventListener("load", () => {
    autoSlide();
 
-   const dots = document.querySelectorAll(".carousel_dot");
+   let dots = document.querySelectorAll(".banner_dot");
    for (let i = 0; i < dots.length; i++) {
       dots[i].addEventListener("click", () => slide(i));
    }
 
-   const buttonPrev = document.querySelector(".carousel_button__prev");
-   const buttonNext = document.querySelector(".carousel_button__next");
-   buttonPrev.addEventListener("click", () => slide(getItemActiveIndex() - 1));
-   buttonNext.addEventListener("click", () => slide(getItemActiveIndex() + 1));
+    let btnPrev = document.querySelector(".banner_button__prev");
+   let btnNext = document.querySelector(".banner_button__next");
+   btnPrev.addEventListener("click", () => slide(getItemActiveIndex() - 1));
+   btnNext.addEventListener("click", () => slide(getItemActiveIndex() + 1));
 })
 
 function autoSlide() {
    setInterval(() => {
       slide(getItemActiveIndex() + 1);
-   }, 3000); // slide speed = 3s
+   }, 3000); 
 }
 
 function slide(toIndex) {
@@ -322,45 +370,45 @@ function slide(toIndex) {
       return;
    onSlide = true;
 
-   const itemsArray = Array.from(document.querySelectorAll(".carousel_item"));
-   const itemActive = document.querySelector(".carousel_item__active");
-   const itemActiveIndex = itemsArray.indexOf(itemActive);
+   let itemsArr = Array.from(document.querySelectorAll(".banner_item"));
+   let itemActive = document.querySelector(".banner_item__active");
+   let itemActiveIndex = itemsArr.indexOf(itemActive);
    let newItemActive = null;
 
    if (toIndex > itemActiveIndex) {
-      // check if toIndex exceeds the number of carousel items
-      if (toIndex >= itemsArray.length) {
+      // check if toIndex exceeds the number of banner items
+      if (toIndex >= itemsArr.length) {
          toIndex = 0;
       }
 
-      newItemActive = itemsArray[toIndex];
+      newItemActive = itemsArr[toIndex];
 
       // start transition
-      newItemActive.classList.add("carousel_item__pos_next");
+      newItemActive.classList.add("banner_item__pos_next");
       setTimeout(() => {
-         newItemActive.classList.add("carousel_item__next");
-         itemActive.classList.add("carousel_item__next");
+         newItemActive.classList.add("banner_item__next");
+         itemActive.classList.add("banner_item__next");
       }, 20);
    } else {
-      // check if toIndex exceeds the number of carousel items
+      // check if toIndex exceeds the number of banner items
       if (toIndex < 0) {
-         toIndex = itemsArray.length - 1;
+         toIndex = itemsArr.length - 1;
       }
 
-      newItemActive = itemsArray[toIndex];
+      newItemActive = itemsArr[toIndex];
 
       // start transition
-      newItemActive.classList.add("carousel_item__pos_prev");
+      newItemActive.classList.add("banner_item__pos_prev");
       setTimeout(() => {
-         newItemActive.classList.add("carousel_item__prev");
-         itemActive.classList.add("carousel_item__prev");
+         newItemActive.classList.add("banner_item__prev");
+         itemActive.classList.add("banner_item__prev");
       }, 20);
    }
 
    // remove all transition class and switch active class
    newItemActive.addEventListener("transitionend", () => {
-      itemActive.className = "carousel_item";
-      newItemActive.className = "carousel_item carousel_item__active";
+      itemActive.className = "banner_item";
+      newItemActive.className = "banner_item banner_item__active";
       onSlide = false;
    }, {
       once: true
@@ -370,18 +418,18 @@ function slide(toIndex) {
 }
 
 function getItemActiveIndex() {
-   const itemsArray = Array.from(document.querySelectorAll(".carousel_item"));
-   const itemActive = document.querySelector(".carousel_item__active");
-   const itemActiveIndex = itemsArray.indexOf(itemActive);
+   let itemsArr = Array.from(document.querySelectorAll(".banner_item"));
+   let itemActive = document.querySelector(".banner_item__active");
+   let itemActiveIndex = itemsArr.indexOf(itemActive);
    return itemActiveIndex;
 }
 
 function slideIndicator(toIndex) {
-   const dots = document.querySelectorAll(".carousel_dot");
-   const dotActive = document.querySelector(".carousel_dot__active");
-   const newDotActive = dots[toIndex];
+   let dots = document.querySelectorAll(".banner_dot");
+   let dotActive = document.querySelector(".banner_dot__active");
+   let newDotActive = dots[toIndex];
 
-   dotActive.classList.remove("carousel_dot__active");
-   newDotActive.classList.add("carousel_dot__active");
+   dotActive.classList.remove("banner_dot__active");
+   newDotActive.classList.add("banner_dot__active");
 }
 </script>
