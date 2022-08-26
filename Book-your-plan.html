@@ -104,6 +104,8 @@ Display(ele,months);
         monthly_rent=price*1.4;
     }
 
+    monthly_rent=Math.round(monthly_rent);
+
     console.log(ele);
     let Display_rent=document.createElement("div");
     Display_rent.innerText="Monthly Rent = ₹"+monthly_rent;
