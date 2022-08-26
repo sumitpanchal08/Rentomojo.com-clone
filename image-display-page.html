@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #image-displaying-container{
+           text-align: center;
+           
+            width:100%;
+        }
+
+        #image-displaying-container img{
+            border:1px solid black;
+
+            width:95%;
+            height:600px;
+           
+        }
+    </style>
+</head>
+<body>
+    <div id="image-displaying-container">
+
+    </div>
+    
+</body>
+</html>
+
+<script>
+
+    let image_displaying_container=document.getElementById("image-displaying-container");
+    let productArr=JSON.parse(localStorage.getItem("products"))||[];
+
+    let ele=productArr[productArr.length-1];
+    Display(ele);
+
+    function Display(ele){
+     
+        let div=document.createElement("div");
+        
+        let img=document.createElement("img");
+        img.src=ele.img;
+
+        div.append(img);
+        image_displaying_container.append(div);
+
+
+
+
+    }
+
+
+</script>
