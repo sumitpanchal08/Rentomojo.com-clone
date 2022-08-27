@@ -126,11 +126,12 @@
     "image-displaying-container"
   );
   let productArr = JSON.parse(localStorage.getItem("products")) || [];
+  let cartArr = JSON.parse(localStorage.getItem("cartpage")) || [];
 
   let rent_container = document.getElementById("rent-container");
 
   let displaying_container = document.getElementById("displaying-container");
-  let cartArr = JSON.parse(localStorage.getItem("cartpage")) || [];
+ 
   let ele = productArr[productArr.length - 1];
 
   function ImageDisplay(ele) {
