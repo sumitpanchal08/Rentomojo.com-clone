@@ -376,6 +376,7 @@
       cartArr.push(ele);
       localStorage.setItem("cartpage", JSON.stringify(cartArr));
       alert("Congratulations!! Added to cart");
+      window.location.href="cart.html";
     });
 
     div.append(name, para, Display_rent, btn);
