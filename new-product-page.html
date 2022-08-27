@@ -121,6 +121,10 @@
   </body>
 </html>
 <script>
+  // let productArr = JSON.parse(localStorage.getItem("products")) || [];
+  // console.log(productArr);
+</script>
+<script>
   //Image Page
   let image_displaying_container = document.getElementById(
     "image-displaying-container"
@@ -132,7 +136,7 @@
 
   let displaying_container = document.getElementById("displaying-container");
  
-  let ele = productArr[productArr.length - 1];
+  let ele = productArr;
 
   function ImageDisplay(ele) {
     console.log(2);
@@ -151,7 +155,7 @@
   //  let productArr=JSON.parse(localStorage.getItem("products"))||[];
 
   function productDisplay() {
-    let el = productArr[productArr.length - 1];
+    let el = productArr;
     displaying_container.innerHTML = "";
 
     let div = document.createElement("div");
@@ -161,7 +165,7 @@
     img.src = el.img;
 
     let name = document.createElement("h1");
-    name.innerText = el.name;
+    name.innerText = el.title;
 
     let rent = document.createElement("h3");
     rent.innerText = el.rent;
@@ -326,7 +330,7 @@
     let div = document.createElement("div");
 
     let name = document.createElement("h2");
-    name.innerText = ele.name;
+    name.innerText = ele.title;
 
     let para = document.createElement("p");
     para.innerText = "How long do you want to rent this for? (Months)";
@@ -361,6 +365,7 @@
 
       cartArr.push(ele);
       localStorage.setItem("cartpage", JSON.stringify(cartArr));
+      alert("Congratulations!! Added to cart");
     });
 
     div.append(name, para, Display_rent, btn);

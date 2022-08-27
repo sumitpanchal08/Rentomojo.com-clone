@@ -1044,7 +1044,7 @@
                     src="https://cdn.icon-icons.com/icons2/1904/PNG/512/downarrow_121316.png" alt="">
             </div>
         </div>
-        <div><input type="text" id="nav_search" placeholder="Search for Product"></div>
+        <div><input type="text" id="nav_search" oninput="nav_search_fn()" placeholder="Search for Product"></div>
         <div><img src="img/cart.png" alt=""></div>
         <div><button id="home_login_button" onclick="show_login_popup()">LOGIN/SIGNUP</button></div>
     </div>
@@ -1068,7 +1068,7 @@
         <div><button id="location_box_close">Close</button></div>
     </div>
     <div id="search_down">
-        <input type="text" id="nav_search_down" placeholder="Search for Product">
+        <input type="text" id="nav_search_down" oninput="nav_search_fn()" placeholder="Search for Product">
     </div>
     <!-- loginsignup started -->
     <div id="login_popup">
@@ -1714,6 +1714,17 @@
         let box = document.getElementById("location_box");
         box.style.display = "none";
     });
+
+    // search function
+    function nav_search_fn(){
+        let se=document.getElementById("nav_search").value;
+        if(se=="bed"){
+            window.location.href="furniture.html";
+        }else if(se=="refrigerator"){
+            window.location.href="appliances.html";
+
+        }
+    }
 
     // login signup started
 

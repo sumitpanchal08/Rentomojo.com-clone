@@ -466,7 +466,7 @@
                     src="https://cdn.icon-icons.com/icons2/1904/PNG/512/downarrow_121316.png" alt="">
             </div>
         </div>
-        <div><input type="text" id="nav_search" placeholder="Search for Product"></div>
+        <div><input type="text" id="nav_search" oninput="nav_search_fn()" placeholder="Search for Product"></div>
         <div><img src="img/cart.png" alt=""></div>
         <div><button id="home_login_button" onclick="show_login_popup()">LOGIN/SIGNUP</button></div>
     </div>
@@ -490,7 +490,7 @@
         <div><button id="location_box_close">Close</button></div>
     </div>
     <div id="search_down">
-        <input type="text" id="nav_search_down" placeholder="Search for Product">
+        <input type="text" id="nav_search_down" oninput="nav_search_fn()" placeholder="Search for Product">
     </div>
     <!-- loginsignup started -->
     <div id="login_popup">
@@ -883,7 +883,7 @@ let cont =document.getElementById("product_containor");
 
  cont.innerHTML="";
 
- data.forEach(({img,title,price}) => {
+ data.forEach((e) => {
 
      let div=document.createElement("div")
      div.setAttribute("class","product_cards");
@@ -894,6 +894,10 @@ let cont =document.getElementById("product_containor");
      let btn=document.createElement("button")
      btn.innerText="Quick View";
      btn.setAttribute("id","viewbtn")
+     btn.addEventListener("click",function(){
+        localStorage.setItem("products",JSON.stringify(e));
+        window.location.href="new-product-page.html";
+     })
 
      btn_div.append(btn);
 
@@ -903,12 +907,12 @@ let cont =document.getElementById("product_containor");
 
 
      let i=document.createElement("img")
-     i.src=img;
+     i.src=e.img;
      i.style.width="90%"
      let t=document.createElement("h3");
-     t.innerText=title;
+     t.innerText=e.title;
      let p=document.createElement("p");
-     p.innerText=price+"/";
+     p.innerText=e.price+"/";
      p.style.display="inline"
 
 
@@ -1034,6 +1038,17 @@ let dropdown_menu_open = document.getElementById("dropdown_menu_open");
         }
     }
 
+
+     // search function
+     function nav_search_fn(){
+        let se=document.getElementById("nav_search").value;
+        if(se=="bed"){
+            window.location.href="furniture.html";
+        }else if(se=="refrigerator"){
+            window.location.href="appliances.html";
+
+        }
+    }
 
 
 
