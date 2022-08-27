@@ -41,7 +41,7 @@
 </body>
 <script>
     if(localStorage.getItem("cartpage")==null || localStorage.getItem("cartpage")=="null" ){
-        let box=document.getElementById("cart");
+        let box=document.querySelector("body");
         let div=document.createElement("div");
         div.innerText="Cart is Empty!!";
         div.style.textAlign="center";
