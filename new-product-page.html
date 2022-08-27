@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #image-displaying-container {
+        text-align: center;
+        border: 0px solid red;
+
+        width: 100%;
+      }
+
+      #image-displaying-container img {
+        border: 1px solid black;
+
+        width: 95%;
+        height: 600px;
+      }
+
+      #menu-bar {
+        display: flex;
+        background-color: rgb(214, 209, 209);
+        height: 50px;
+        padding: 15px;
+        font-family: sans-serif;
+        font-size: 20px;
+        justify-content: space-around;
+        cursor: pointer;
+      }
+      #container-of-two {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+
+      }
+
+     
+
+      #product-page {
+        border: 0px solid red;
+        width:100%;
+        grid-area: 1/1/2/3;
+      }
+
+      #rent-container{
+        width:100%;
+      }
+
+      #largest-container {
+        /* margin-left: 400px; */
+        text-align: center;
+        border: 1px solid black;
+        width: 100%;
+        height: 400px;
+        background-color: aqua;
+        border: 0px solid red;
+      }
+
+      #CartButton {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        background-color: red;
+        padding: 10px;
+        font-size: 30px;
+      }
+
+      #label-months {
+        font-size: 30px;
+      }
+
+      #Display-rent {
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="image-displaying-container"></div>
+
+    <div id="container-of-two">
+      <div id="product-page">
+        <div id="image-display"></div>
+
+        <div id="menu-bar">
+          <nav class="nav-items">
+            <div id="rent_menu" onclick="rentDisplay()">Why rent from us?</div>
+          </nav>
+
+          <nav id="nav-items">
+            <div id="product_menu" onclick="productDisplay()">
+              Product Details
+            </div>
+          </nav>
+        </div>
+
+        <div id="displaying-container"></div>
+      </div>
+
+      <div id="largest-container">
+        <div id="rent-container"></div>
+
+        <div>
+          <form>
+            <label id="label-months" for="months"
+              >Months (between 3 and 12):</label
+            >
+            <input
+              type="range"
+              oninput="Months()"
+              id="months"
+              name="months"
+              step="3"
+              min="3"
+              max="12"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  //Image Page
+  let image_displaying_container = document.getElementById(
+    "image-displaying-container"
+  );
+  let productArr = JSON.parse(localStorage.getItem("products")) || [];
+
+  let rent_container = document.getElementById("rent-container");
+
+  let displaying_container = document.getElementById("displaying-container");
+  let cartArr = JSON.parse(localStorage.getItem("cartpage")) || [];
+  let ele = productArr[productArr.length - 1];
+
+  function ImageDisplay(ele) {
+    console.log(2);
+    let div = document.createElement("div");
+
+    let img = document.createElement("img");
+    img.src = ele.img;
+
+    div.append(img);
+    image_displaying_container.append(div);
+  }
+
+  ImageDisplay(ele);
+
+  //Product Display Menu Page
+  //  let productArr=JSON.parse(localStorage.getItem("products"))||[];
+
+  function productDisplay() {
+    let el = productArr[productArr.length - 1];
+    displaying_container.innerHTML = "";
+
+    let div = document.createElement("div");
+    div.style.textAlign = "center";
+
+    let img = document.createElement("img");
+    img.src = el.img;
+
+    let name = document.createElement("h1");
+    name.innerText = el.name;
+
+    let rent = document.createElement("h3");
+    rent.innerText = el.rent;
+
+    let desc = document.createElement("p");
+    desc.innerText = el.desc;
+
+    let size = document.createElement("h4");
+    size.innerText = el.size;
+
+    let features = document.createElement("h4");
+    features.innerText = el.features;
+
+    div.append(img, name, rent, desc, size, features);
+
+    displaying_container.append(div);
+  }
+
+  function rentDisplay() {
+    displaying_container.innerHTML = "";
+
+    let div1 = document.createElement("div");
+    div1.style.display = "flex";
+
+    let innerDiv1 = document.createElement("div");
+    let h2 = document.createElement("h2");
+    h2.innerText = "Relocate for free when you move";
+
+    let h3 = document.createElement("p");
+    h3.innerText =
+      "Changing your house or even your city? We'll relocate your rentals for free within the city or to any of our 8 operational cities!";
+
+    innerDiv1.append(h2, h3);
+
+    let innerDiv2 = document.createElement("div");
+    innerDiv2.style.width = "50%";
+    let img = document.createElement("img");
+    img.style.width = "100%";
+    img.src =
+      "https://www.rentomojo.com/public/images/product/app-benefits/product.png";
+    innerDiv2.append(img);
+
+    div1.append(innerDiv1, innerDiv2);
+
+    //Bottom Div- 5subdiv
+    let div2 = document.createElement("div");
+    div2.style.margin = "auto";
+
+    let innerDiv3 = document.createElement("div");
+    innerDiv3.style.display = "flex";
+    innerDiv3.style.justifyContent = "space-around";
+    let innermostDiv3 = document.createElement("div");
+    innermostDiv3.style.width = "60%";
+    let img3 = document.createElement("img");
+    img3.src =
+      "https://www.rentomojo.com/public/images/product/app-benefits/icons/common/relocation.svg";
+    img3.style.height = "40px";
+    let text3 = document.createElement("h3");
+    text3.innerText = "Relocate for free when you move";
+    let p3 = document.createElement("p");
+    p3.innerText =
+      "Changing your house or even your city? We'll relocate your rentals for free within the city or to any of our eight operational cities!";
+    innermostDiv3.append(text3, p3);
+    innerDiv3.append(img3, innermostDiv3);
+
+    let innerDiv4 = document.createElement("div");
+    innerDiv4.style.display = "flex";
+    innerDiv4.style.justifyContent = "space-around";
+    let innermostDiv4 = document.createElement("div");
+    innermostDiv4.style.width = "60%";
+    let img4 = document.createElement("img");
+    img4.src =
+      "https://www.rentomojo.com/public/images/product/app-benefits/icons/furniture/1.png";
+    img4.style.height = "40px";
+
+    let text4 = document.createElement("h3");
+    text4.innerText = "Furniture as good as new";
+    let p4 = document.createElement("p");
+    p4.innerText =
+      "Quality matters to you, and us! That's why our team does a thorough quality-check for every product, so it reaches you in a condition as good as new.";
+    innermostDiv4.append(text4, p4);
+    innerDiv4.append(img4, innermostDiv4);
+
+    let innerDiv5 = document.createElement("div");
+    innerDiv5.style.display = "flex";
+    innerDiv5.style.justifyContent = "space-around";
+    let innermostDiv5 = document.createElement("div");
+    innermostDiv5.style.width = "60%";
+    let img5 = document.createElement("img");
+    img5.src =
+      "https://www.rentomojo.com/public/images/product/app-benefits/icons/furniture/2.png";
+    img5.style.height = "40px";
+
+    let text5 = document.createElement("h3");
+    text5.innerText = "Easy returns, no questions asked";
+    let p5 = document.createElement("p");
+    p5.innerText =
+      "If you don't like the product you receive on delivery, you can return it right away. We'll initiate the refund of your deposit within 24 hours.";
+    innermostDiv5.append(text5, p5);
+    innerDiv5.append(img5, innermostDiv5);
+
+    let innerDiv6 = document.createElement("div");
+    innerDiv6.style.display = "flex";
+    innerDiv6.style.justifyContent = "space-around";
+    let innermostDiv6 = document.createElement("div");
+    innermostDiv6.style.width = "60%";
+    let img6 = document.createElement("img");
+    img6.src =
+      "https://www.rentomojo.com/public/images/product/app-benefits/icons/common/1.png";
+    img6.style.height = "40px";
+
+    let text6 = document.createElement("h3");
+    text6.innerText = "Free maintenance and annual cleaning";
+    let p6 = document.createElement("p");
+    p6.innerText =
+      "We offer maintenance for your product after 12 months and annual cleaning—free of cost, so you can sit back and relax.";
+    innermostDiv6.append(text6, p6);
+    innerDiv6.append(img6, innermostDiv6);
+
+    let innerDiv7 = document.createElement("div");
+    innerDiv7.style.display = "flex";
+    innerDiv7.style.justifyContent = "space-around";
+    let innermostDiv7 = document.createElement("div");
+    innermostDiv7.style.width = "60%";
+    let img7 = document.createElement("img");
+    img7.src =
+      "https://www.rentomojo.com/public/images/product/app-benefits/icons/furniture/5.png";
+    img7.style.height = "40px";
+    let text7 = document.createElement("h3");
+    text7.innerText = "Keep upgrading to newer designs";
+    let p7 = document.createElement("p");
+    p7.innerText =
+      "Bored of the same product and style? Just upgrade after 12 months to try another design and enjoy the change!";
+    innermostDiv7.append(text7, p7);
+    innerDiv7.append(img7, innermostDiv7);
+
+    div2.append(innerDiv3, innerDiv4, innerDiv5, innerDiv6, innerDiv7);
+
+    displaying_container.append(div1, div2);
+  }
+
+  productDisplay();
+
+  //book your plan
+
+  //let productArr=JSON.parse(localStorage.getItem("products"))||[];
+
+  //  let ele=productArr[productArr.length-1];
+
+  let months = 12;
+
+  Display(ele, months);
+
+  function Months() {
+    let months = document.getElementById("months").value;
+    Display(ele, months);
+  }
+
+  function Display(ele, months) {
+    rent_container.innerHTML = "";
+
+    let div = document.createElement("div");
+
+    let name = document.createElement("h2");
+    name.innerText = ele.name;
+
+    let para = document.createElement("p");
+    para.innerText = "How long do you want to rent this for? (Months)";
+
+    let price = +ele.price;
+    let monthly_rent;
+
+    console.log(price);
+
+    if (months == 12) {
+      monthly_rent = price * 1;
+    } else if (months == 9) {
+      monthly_rent = price * 1.2;
+    } else if (months == 6) {
+      monthly_rent = price * 1.3;
+    } else if (months == 3) {
+      monthly_rent = price * 1.4;
+    }
+
+    monthly_rent = Math.round(monthly_rent);
+
+    console.log(ele);
+    let Display_rent = document.createElement("div");
+    Display_rent.innerText = "Monthly Rent = ₹" + monthly_rent;
+    Display_rent.id = "Display-rent";
+
+    let btn = document.createElement("button");
+    btn.innerText = "Add To Cart";
+    btn.id = "CartButton";
+    btn.addEventListener("click", function () {
+      // console.log(ele);
+
+      cartArr.push(ele);
+      localStorage.setItem("cartpage", JSON.stringify(cartArr));
+    });
+
+    div.append(name, para, Display_rent, btn);
+
+    rent_container.append(div);
+  }
+</script>
