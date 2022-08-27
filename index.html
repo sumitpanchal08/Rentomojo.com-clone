@@ -66,6 +66,7 @@
         #navbar>div:nth-child(5) {
             width: 55px;
             margin-left: 5px;
+            cursor: pointer;
         }
 
         #navbar>div:nth-child(5)>img {
@@ -231,6 +232,7 @@
 
             #navbar>div:nth-child(5) {
                 margin-right: 15px;
+                cursor: pointer;
             }
 
             #search_down {
@@ -1045,7 +1047,7 @@
             </div>
         </div>
         <div><input type="text" id="nav_search" oninput="nav_search_fn()" placeholder="Search for Product"></div>
-        <div><img src="img/cart.png" alt=""></div>
+        <div><img src="img/cart.png" onclick="cart_clicked()" alt=""></div>
         <div><button id="home_login_button" onclick="show_login_popup()">LOGIN/SIGNUP</button></div>
     </div>
     <div id="menu">
@@ -1723,6 +1725,17 @@
         }else if(se=="refrigerator"){
             window.location.href="appliances.html";
 
+        }
+    }
+    //cart data
+
+    let cartArr=JSON.parse(localStorage.getItem("cartpage")) || []; 
+    function cart_clicked(){
+        let login_status=JSON.parse(localStorage.getItem("loginsuccess"));
+        if(login_status==true){
+            window.location.href="cart.html";
+        }else{
+            alert("Login first!!");
         }
     }
 
