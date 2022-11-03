@@ -394,8 +394,10 @@
             <div><button onclick="goToHome()">Browse catalogue</button></div>
         
     </div>
-    <div id="checkout"></div>
-    <div id="cart"></div>
+    <div id="cartData">
+        <div id="checkout"></div>
+        <div id="cart"></div>
+    </div>
 </body>
 <script>
     // navbar started
@@ -534,67 +536,81 @@
         window.location.href="index.html";
     }
     // navbar ended
-    if(localStorage.getItem("cartpage")==null || localStorage.getItem("cartpage")=="null" ){
-        
-        // let box=document.querySelector("body");
-        // let div=document.createElement("div");
-        // div.innerText="Cart is Empty!!";
-        // div.style.textAlign="center";
-        // div.style.marginTop="20vh";
-        // div.style.fontSize="22px"
-        // let div1=document.createElement("div");
-        // div1.innerText="Go Back...";
-        // div1.style.textAlign="center";
-        // div1.style.fontSize="18px"
-        // div1.style.color="blue";
-        // div1.style.cursor="pointer"
-        // div1.addEventListener("click",function(){
-        //     window.location.href="index.html"
-        // })
-        // box.append(div,div1);
-    }else{
-        let cartArr=JSON.parse(localStorage.getItem("cartpage"));
-        function displayCart(data){
-            let tot=0;
+    refreshCart();
+    function refreshCart(){
+
+        if(localStorage.getItem("cartpage")==null || localStorage.getItem("cartpage")=="null" || localStorage.getItem("cartpage")=="[]"){
+            
+            // let box=document.querySelector("body");
+            // let div=document.createElement("div");
+            // div.innerText="Cart is Empty!!";
+            // div.style.textAlign="center";
+            // div.style.marginTop="20vh";
+            // div.style.fontSize="22px"
+            // let div1=document.createElement("div");
+            // div1.innerText="Go Back...";
+            // div1.style.textAlign="center";
+            // div1.style.fontSize="18px"
+            // div1.style.color="blue";
+            // div1.style.cursor="pointer"
+            // div1.addEventListener("click",function(){
+            //     window.location.href="index.html"
+            // })
+            // box.append(div,div1);
             let checkout=document.getElementById("checkout");
-            checkout.innerHTML="";
-            let box=document.getElementById("cart");
-            box.innerHTML="";
-            let total=document.createElement("div");
-            total.setAttribute("id","carttotal");
-            let tot1=document.createElement("h1");
-            let tot2=document.createElement("button");
-            tot2.innerText="Checkout";
-            tot2.addEventListener("click",function(){
-                alert("Your order is confirmed!!");
-                localStorage.setItem("cartpage",null);
-                window.location.href="index.html";
-            })
-            total.append(tot1,tot2);
-            checkout.append(total);
-            data.forEach((e,i)=>{
-                let div=document.createElement("div");
-                div.setAttribute("class","cartItem");
-                box.append(div);
-                let img=document.createElement("img");
-                img.src=e.img;
-                let name=document.createElement("h2");
-                name.innerText=e.title;
-                let price=document.createElement("h3");
-                price.innerText="$"+e.price;
-                tot=tot+Number(e.price);
-                let remove=document.createElement("button");
-                remove.innerText="Remove";
-                remove.addEventListener("click",function(){
-                    cartArr.splice(i,1);
-                    localStorage.setItem("cartpage",JSON.stringify(cartArr));
-                    displayCart(cartArr);
+                checkout.innerHTML="";
+                let box=document.getElementById("cart");
+                box.innerHTML="";
+                document.getElementById("carttotal").innerHTML="";
+            document.getElementById("emptyCart").style.display="block";
+            refreshCart();
+        }else{
+            document.getElementById("emptyCart").style.display="none";
+            let cartArr=JSON.parse(localStorage.getItem("cartpage"));
+            function displayCart(data){
+                let tot=0;
+                let checkout=document.getElementById("checkout");
+                checkout.innerHTML="";
+                let box=document.getElementById("cart");
+                box.innerHTML="";
+                let total=document.createElement("div");
+                total.setAttribute("id","carttotal");
+                let tot1=document.createElement("h1");
+                let tot2=document.createElement("button");
+                tot2.innerText="Checkout";
+                tot2.addEventListener("click",function(){
+                    alert("Your order is confirmed!!");
+                    localStorage.setItem("cartpage",null);
+                    refreshCart();
+                    window.location.href="index.html";
+                })
+                total.append(tot1,tot2);
+                checkout.append(total);
+                data.forEach((e,i)=>{
+                    let div=document.createElement("div");
+                    div.setAttribute("class","cartItem");
+                    box.append(div);
+                    let img=document.createElement("img");
+                    img.src=e.img;
+                    let name=document.createElement("h2");
+                    name.innerText=e.title;
+                    let price=document.createElement("h3");
+                    price.innerText="$"+e.price;
+                    tot=tot+Number(e.price);
+                    let remove=document.createElement("button");
+                    remove.innerText="Remove";
+                    remove.addEventListener("click",function(){
+                        cartArr.splice(i,1);
+                        localStorage.setItem("cartpage",JSON.stringify(cartArr));
+                        refreshCart();
+                        displayCart(cartArr);
+                    });
+                    div.append(img,name,price,remove);
                 });
-                div.append(img,name,price,remove);
-            });
-            tot1.innerText="Total is :- $"+tot;
+                tot1.innerText="Total is :- $"+tot;
+            }
+            displayCart(cartArr);
         }
-        displayCart(cartArr);
     }
 </script>
 </html>
