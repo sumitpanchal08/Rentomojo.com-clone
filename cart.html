@@ -333,6 +333,31 @@
             border: 1px solid rgb(229, 57, 57);
             cursor: pointer;
         }
+
+        .cartItem{
+            width: 100%;
+            /* background-color: black; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* border: 5px solid red; */
+        }
+        #cart {
+            width: 100%;
+            margin-top: 50px;
+            padding: 20px 0px;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+        }
+        .remove_btn{
+            padding: 10px 15px;
+            background-color: red;
+            font-size: 12px;
+            color: white;
+            border-radius: 10px;
+            border: none;
+        }
     </style>
 </head>
 
@@ -578,6 +603,7 @@
                 box.append(div);
                 let img=document.createElement("img");
                 img.src=e.img;
+                img.style.width="85%"
                 let name=document.createElement("h2");
                 name.innerText=e.title;
                 let price=document.createElement("h3");
@@ -589,12 +615,30 @@
                     cartArr.splice(i,1);
                     localStorage.setItem("cartpage",JSON.stringify(cartArr));
                     displayCart(cartArr);
+                    window.location.href="cart.html"
                 });
+                remove.setAttribute("class","remove_btn")
                 div.append(img,name,price,remove);
             });
             tot1.innerText="Total is :- $"+tot;
         }
         displayCart(cartArr);
     }
+
+
+    let emptyCart = document.getElementById("emptyCart")
+    let dataWithCart = document.getElementById("cart")
+
+  
+    if(cartArr.length==0){
+        emptyCart.style.display="block"
+        dataWithCart.style.visibility="hidden"
+    }else if(cart.length!==0){
+        emptyCart.style.display="none"
+        dataWithCart.style.visibility="visible"     
+    }
+     
+ 
+
 </script>
 </html>
