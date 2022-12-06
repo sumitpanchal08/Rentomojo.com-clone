@@ -419,8 +419,10 @@
             <div><button onclick="goToHome()">Browse catalogue</button></div>
         
     </div>
-    <div id="checkout"></div>
-    <div id="cart"></div>
+    <div id="cartData">
+        <div id="checkout"></div>
+        <div id="cart"></div>
+    </div>
 </body>
 <script>
     // navbar started
@@ -603,7 +605,6 @@
                 box.append(div);
                 let img=document.createElement("img");
                 img.src=e.img;
-                img.style.width="85%"
                 let name=document.createElement("h2");
                 name.innerText=e.title;
                 let price=document.createElement("h3");
@@ -615,14 +616,11 @@
                     cartArr.splice(i,1);
                     localStorage.setItem("cartpage",JSON.stringify(cartArr));
                     displayCart(cartArr);
-                    window.location.href="cart.html"
                 });
-                remove.setAttribute("class","remove_btn")
                 div.append(img,name,price,remove);
             });
             tot1.innerText="Total is :- $"+tot;
         }
-        displayCart(cartArr);
     }
 
 
